@@ -29,7 +29,6 @@ const AddProfileForm = ({ currentRole, userId, isRP }) => {
     isRP: false, // For directors
     addProject: false, // For production managers
   });
-
   const allowedRoles = ROLE_PERMISSIONS[currentRole] || [];
 
   useEffect(() => {
@@ -169,7 +168,7 @@ const AddProfileForm = ({ currentRole, userId, isRP }) => {
                 </div>
               </div>
               )}
-
+              
               {formData.role === 'production' && (
                 <div className="flex items-center justify-center gap-4">
                 <div className="w-auto">
