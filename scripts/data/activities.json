@@ -1,0 +1,413 @@
+[{
+  "_id": {
+    "$oid": "6785706c138de251ae70583a"
+  },
+  "id_Act": 1,
+  "Act_name": "ACABADOS, DECORACIÓN"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae70583b"
+  },
+  "id_Act": 2,
+  "Act_name": "ACEROS"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae70583c"
+  },
+  "id_Act": 3,
+  "Act_name": "ADITIVOS, RESINAS Y MORTEROS"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae70583d"
+  },
+  "id_Act": 4,
+  "Act_name": "AGLOMERADO ASFALTICO"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae70583e"
+  },
+  "id_Act": 5,
+  "Act_name": "AISLAMIENTOS TERMICOS Y ACUSTICOS"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae70583f"
+  },
+  "id_Act": 6,
+  "Act_name": "ALQUILERES DE MAQUINARIA"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae705840"
+  },
+  "id_Act": 7,
+  "Act_name": "ANDAMIOS Y CIMBRAS"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae705841"
+  },
+  "id_Act": 8,
+  "Act_name": "ARIDOS Y ESCOLLERAS"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae705842"
+  },
+  "id_Act": 9,
+  "Act_name": "ARQUEOLOGIA"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae705843"
+  },
+  "id_Act": 10,
+  "Act_name": "ASCENSORES, CINTAS Y ESCALERAS MECANICAS"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae705844"
+  },
+  "id_Act": 11,
+  "Act_name": "AUDITORIAS"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae705845"
+  },
+  "id_Act": 12,
+  "Act_name": "BASCULAS"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae705846"
+  },
+  "id_Act": 13,
+  "Act_name": "CALDERERIA Y CERRAJERIA"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae705847"
+  },
+  "id_Act": 14,
+  "Act_name": "CALIBRACION"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae705848"
+  },
+  "id_Act": 15,
+  "Act_name": "CARPINTERIA"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae705849"
+  },
+  "id_Act": 16,
+  "Act_name": "CASETAS, MODULOS, ESPACIOS"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae70584a"
+  },
+  "id_Act": 17,
+  "Act_name": "CERRAMIENTOS Y VALLAS"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae70584b"
+  },
+  "id_Act": 18,
+  "Act_name": "CIMENTACIONES"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae70584c"
+  },
+  "id_Act": 19,
+  "Act_name": "COCINAS"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae70584d"
+  },
+  "id_Act": 20,
+  "Act_name": "COMERCIALES, MATERIALES DE OBRA"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae70584e"
+  },
+  "id_Act": 21,
+  "Act_name": "CONTROL DE CALIDAD"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae70584f"
+  },
+  "id_Act": 22,
+  "Act_name": "CUBIERTA Y FACHADA"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae705850"
+  },
+  "id_Act": 23,
+  "Act_name": "ENCOFRADOS"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae705851"
+  },
+  "id_Act": 24,
+  "Act_name": "EQUIPOS DE SEGURIDAD Y PROTECCION"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae705852"
+  },
+  "id_Act": 25,
+  "Act_name": "EQUIPOS HIDRAULICOS"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae705853"
+  },
+  "id_Act": 26,
+  "Act_name": "ESTABILIZACION DE TALUDES Y EXCAVACIONES"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae705854"
+  },
+  "id_Act": 27,
+  "Act_name": "ESTRUCTURAS METALICAS"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae705855"
+  },
+  "id_Act": 28,
+  "Act_name": "FERRETERIAS"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae705856"
+  },
+  "id_Act": 29,
+  "Act_name": "FORMACION"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae705857"
+  },
+  "id_Act": 30,
+  "Act_name": "GASOLINERAS, SUMINISTRO DE CARBURANTE"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae705858"
+  },
+  "id_Act": 31,
+  "Act_name": "GESTION Y TRATAMIENTO DE RESIDUOS"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae705859"
+  },
+  "id_Act": 32,
+  "Act_name": "HINCAS"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae70585a"
+  },
+  "id_Act": 33,
+  "Act_name": "HORMIGON"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae70585b"
+  },
+  "id_Act": 34,
+  "Act_name": "IMPERMEABILIZACIONES"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae70585c"
+  },
+  "id_Act": 35,
+  "Act_name": "INFORMATICA"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae70585d"
+  },
+  "id_Act": 36,
+  "Act_name": "INGENIERIA"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae70585e"
+  },
+  "id_Act": 37,
+  "Act_name": "INSTALACIONES"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae705860"
+  },
+  "id_Act": 38,
+  "Act_name": "JARDINERIA Y MEDIOAMBIENTE"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae705861"
+  },
+  "id_Act": 39,
+  "Act_name": "LIMPIEZAS"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae705862"
+  },
+  "id_Act": 40,
+  "Act_name": "MANTENIMIENTO DE MAQUINARIA"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae705863"
+  },
+  "id_Act": 41,
+  "Act_name": "MOBILIARIO"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae705864"
+  },
+  "id_Act": 42,
+  "Act_name": "MOBILIARIO URBANO, DEPORTIVO Y JUEGOS"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae705865"
+  },
+  "id_Act": 43,
+  "Act_name": "MOVIMIENTO DE TIERRAS"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae705866"
+  },
+  "id_Act": 44,
+  "Act_name": "OBRAS MARITIMAS"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae705867"
+  },
+  "id_Act": 45,
+  "Act_name": "PALETERIA"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae705868"
+  },
+  "id_Act": 46,
+  "Act_name": "PAVIMENTOS"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae705869"
+  },
+  "id_Act": 47,
+  "Act_name": "PEQUEÑAS CONSTRUCTORAS"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae70586a"
+  },
+  "id_Act": 48,
+  "Act_name": "PINTURAS"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae70586b"
+  },
+  "id_Act": 49,
+  "Act_name": "PREFABRICADOS DE HORMIGON"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae70586c"
+  },
+  "id_Act": 50,
+  "Act_name": "PUERTAS"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae70586d"
+  },
+  "id_Act": 51,
+  "Act_name": "REGATAS Y PERFORACIONES"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae70586e"
+  },
+  "id_Act": 52,
+  "Act_name": "SEÑALIZACION Y PINTURA"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae70586f"
+  },
+  "id_Act": 53,
+  "Act_name": "TOPOGRAFIA"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae705870"
+  },
+  "id_Act": 54,
+  "Act_name": "TRABAJOS EN VIAS FERROVIARIAS"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae705871"
+  },
+  "id_Act": 55,
+  "Act_name": "TRABAJOS VERTICALES"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae705872"
+  },
+  "id_Act": 56,
+  "Act_name": "TRANSPORTE"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae705873"
+  },
+  "id_Act": 57,
+  "Act_name": "TUBOS"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae705874"
+  },
+  "id_Act": 58,
+  "Act_name": "VEHICULOS Y MAQUINARIA"
+},
+{
+  "_id": {
+    "$oid": "6785706c138de251ae705875"
+  },
+  "id_Act": 59,
+  "Act_name": "VIGILANTES DE OBRA"
+}]
