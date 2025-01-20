@@ -1,11 +1,12 @@
-import Activity from "/home/saaya/constrallianz/src/models/Activity.js";
-import connectDB from "/home/saaya/constrallianz/src/lib/db.js";
+import Activity from "../src/models/Activity";
+import SubActivity from "../src/models/SubActivity";
+import connectDB from "../src/lib/db";
 import fs from 'fs/promises';
 
-export default async function seedActivities() {
+export async function seedActivities() {
     try{
         await connectDB();
-        const data = await fs.readFile('/home/saaya/constrallianz/scripts/data/activities.json');
+        const data = await fs.readFile('./data/activities.json');
         const jsonObject = JSON.parse(data);
         for (const activity of jsonObject) {
             delete activity._id;
@@ -17,4 +18,18 @@ export default async function seedActivities() {
     }
 }
 
-seedActivities();
+export async function seedSubActivities() {
+    try{
+        await connectDB();
+        const data = await fs.readFile('./data/subActivities.json');
+        const jsonObject = JSON.parse(data);
+        for (const subActivity of jsonObject) {
+            delete subActivity._id;
+            await SubActivity.create(subActivity);
+        }
+        console.log("SubActivities seeded successfully");
+    }catch(err){
+        console.error(err);
+    }
+}
+

@@ -1,0 +1,1400 @@
+[{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b50"
+  },
+  "id_SubAct": "subact0001",
+  "SUBACT_name": "ACABADOS INTERIORES",
+  "id_Act": "1"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b51"
+  },
+  "id_SubAct": "subact0002",
+  "SUBACT_name": "PISCINAS",
+  "id_Act": "1"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b52"
+  },
+  "id_SubAct": "subact0003",
+  "SUBACT_name": "TOLDOS, CORTINAS, PERSIANAS",
+  "id_Act": "1"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b53"
+  },
+  "id_SubAct": "subact0004",
+  "SUBACT_name": "ACABADOS EXTERIORES",
+  "id_Act": "1"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b54"
+  },
+  "id_SubAct": "subact0005",
+  "SUBACT_name": "ACERO ACTIVO",
+  "id_Act": "2"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b55"
+  },
+  "id_SubAct": "subact0006",
+  "SUBACT_name": "ACERO LAMINADO",
+  "id_Act": "2"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b56"
+  },
+  "id_SubAct": "subact0007",
+  "SUBACT_name": "CHAPAS ACERO",
+  "id_Act": "2"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b57"
+  },
+  "id_SubAct": "subact0008",
+  "SUBACT_name": "FERRALLA",
+  "id_Act": "2"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b58"
+  },
+  "id_SubAct": "subact0009",
+  "SUBACT_name": "FUNDICION",
+  "id_Act": "2"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b59"
+  },
+  "id_SubAct": "subact0010",
+  "SUBACT_name": "PIEZAS, MECANIZADO",
+  "id_Act": "2"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b5a"
+  },
+  "id_SubAct": "subact0011",
+  "SUBACT_name": "CEMENTO",
+  "id_Act": "3"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b5b"
+  },
+  "id_SubAct": "subact0012",
+  "SUBACT_name": "MORTEROS Y TRATAMIENTOS ESPECIALES",
+  "id_Act": "3"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b5c"
+  },
+  "id_SubAct": "subact0013",
+  "SUBACT_name": "BETUN, PRODUCTOS ASFALTICOS",
+  "id_Act": "4"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b5d"
+  },
+  "id_SubAct": "subact0014",
+  "SUBACT_name": "ESTABILIZACION MEDIANTE CEMENTO",
+  "id_Act": "4"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b5e"
+  },
+  "id_SubAct": "subact0015",
+  "SUBACT_name": "SUELO CEMENTO",
+  "id_Act": "4"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b5f"
+  },
+  "id_SubAct": "subact0016",
+  "SUBACT_name": "AISLAMIENTOS TERMICOS Y ACUSTICOS",
+  "id_Act": "5"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b60"
+  },
+  "id_SubAct": "subact0017",
+  "SUBACT_name": "GRUA TORRE",
+  "id_Act": "6"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b61"
+  },
+  "id_SubAct": "subact0018",
+  "SUBACT_name": "HERRAMIENTAS Y PEQUEÑA MAQUINARIA",
+  "id_Act": "6"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b62"
+  },
+  "id_SubAct": "subact0019",
+  "SUBACT_name": "MAQUINARIA GRANDE",
+  "id_Act": "6"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b63"
+  },
+  "id_SubAct": "subact0020",
+  "SUBACT_name": "CAMIONES GRUA Y AUTOGRUAS",
+  "id_Act": "6"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b64"
+  },
+  "id_SubAct": "subact0021",
+  "SUBACT_name": "MEDIOS DE ELEVACION",
+  "id_Act": "6"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b65"
+  },
+  "id_SubAct": "subact0022",
+  "SUBACT_name": "ANDAMIOS Y CIMBRAS",
+  "id_Act": "7"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b66"
+  },
+  "id_SubAct": "subact0023",
+  "SUBACT_name": "ARIDOS Y ESCOLLERAS",
+  "id_Act": "8"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b67"
+  },
+  "id_SubAct": "subact0024",
+  "SUBACT_name": "ARQUEOLOGIA",
+  "id_Act": "9"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b68"
+  },
+  "id_SubAct": "subact0025",
+  "SUBACT_name": "ASCENSORES Y MONTACARGAS",
+  "id_Act": "10"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b69"
+  },
+  "id_SubAct": "subact0026",
+  "SUBACT_name": "ESCALERAS MECANICAS",
+  "id_Act": "10"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b6a"
+  },
+  "id_SubAct": "subact0027",
+  "SUBACT_name": "AUDITORIAS",
+  "id_Act": "11"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b6b"
+  },
+  "id_SubAct": "subact0028",
+  "SUBACT_name": "BASCULAS",
+  "id_Act": "12"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b6c"
+  },
+  "id_SubAct": "subact0029",
+  "SUBACT_name": "CALDERERIA",
+  "id_Act": "13"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b6d"
+  },
+  "id_SubAct": "subact0030",
+  "SUBACT_name": "CERRAJERIA",
+  "id_Act": "13"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b6e"
+  },
+  "id_SubAct": "subact0031",
+  "SUBACT_name": "CALIBRACION",
+  "id_Act": "14"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b6f"
+  },
+  "id_SubAct": "subact0032",
+  "SUBACT_name": "MADERA",
+  "id_Act": "15"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b70"
+  },
+  "id_SubAct": "subact0033",
+  "SUBACT_name": "METALICA, ALUMINIO",
+  "id_Act": "15"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b71"
+  },
+  "id_SubAct": "subact0034",
+  "SUBACT_name": "PVC, POLIURETANO",
+  "id_Act": "15"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b72"
+  },
+  "id_SubAct": "subact0035",
+  "SUBACT_name": "VIDRIOS",
+  "id_Act": "15"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b73"
+  },
+  "id_SubAct": "subact0036",
+  "SUBACT_name": "CASETAS DE OBRA Y MODULOS",
+  "id_Act": "16"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b74"
+  },
+  "id_SubAct": "subact0037",
+  "SUBACT_name": "TABIQUES MODULARES, SUELOS TECNICOS",
+  "id_Act": "16"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b75"
+  },
+  "id_SubAct": "subact0038",
+  "SUBACT_name": "BARRERAS DE HORMIGON, NEW JERESEYS",
+  "id_Act": "17"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b76"
+  },
+  "id_SubAct": "subact0039",
+  "SUBACT_name": "CERRAMIENTOS Y VALLAS",
+  "id_Act": "17"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b77"
+  },
+  "id_SubAct": "subact0040",
+  "SUBACT_name": "MECHAS DRENANTES, AGOTAMIENTO FREATICO",
+  "id_Act": "18"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b78"
+  },
+  "id_SubAct": "subact0041",
+  "SUBACT_name": "PILOTES, PANTALLAS, MICROPILOTES, ANCLAJES",
+  "id_Act": "18"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b79"
+  },
+  "id_SubAct": "subact0042",
+  "SUBACT_name": "TRAT. DE TERRENO, GEOTECNIA, TALUDES, SONDEOS, ACODALAMIENTOS",
+  "id_Act": "18"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b7a"
+  },
+  "id_SubAct": "subact0043",
+  "SUBACT_name": "MUEBLES DE COCINA",
+  "id_Act": "19"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b7b"
+  },
+  "id_SubAct": "subact0044",
+  "SUBACT_name": "ELECTRODOMESTICOS",
+  "id_Act": "19"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b7c"
+  },
+  "id_SubAct": "subact0045",
+  "SUBACT_name": "GEOTEXTIL",
+  "id_Act": "20"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b7d"
+  },
+  "id_SubAct": "subact0046",
+  "SUBACT_name": "IMAGEN CORPORATIVA, ROTULACIONES, PUBLICIDAD",
+  "id_Act": "20"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b7e"
+  },
+  "id_SubAct": "subact0047",
+  "SUBACT_name": "JUNTAS",
+  "id_Act": "20"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b7f"
+  },
+  "id_SubAct": "subact0048",
+  "SUBACT_name": "MATERIAL CERAMICO",
+  "id_Act": "20"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b80"
+  },
+  "id_SubAct": "subact0049",
+  "SUBACT_name": "MATERIALES DE OFICINA",
+  "id_Act": "20"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b81"
+  },
+  "id_SubAct": "subact0050",
+  "SUBACT_name": "MATERIALES INSTALACIONES",
+  "id_Act": "20"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b82"
+  },
+  "id_SubAct": "subact0051",
+  "SUBACT_name": "MATERIALES METALICOS",
+  "id_Act": "20"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b83"
+  },
+  "id_SubAct": "subact0052",
+  "SUBACT_name": "MATERIALES PLASTICOS",
+  "id_Act": "20"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b84"
+  },
+  "id_SubAct": "subact0053",
+  "SUBACT_name": "MATERIALES QUIMICOS",
+  "id_Act": "20"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b85"
+  },
+  "id_SubAct": "subact0054",
+  "SUBACT_name": "MATERIALES TEXTILES",
+  "id_Act": "20"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b86"
+  },
+  "id_SubAct": "subact0055",
+  "SUBACT_name": "MATERIALES VARIOS",
+  "id_Act": "20"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b87"
+  },
+  "id_SubAct": "subact0056",
+  "SUBACT_name": "CONTROL DE CALIDAD",
+  "id_Act": "21"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b88"
+  },
+  "id_SubAct": "subact0057",
+  "SUBACT_name": "LEED",
+  "id_Act": "21"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b89"
+  },
+  "id_SubAct": "subact0058",
+  "SUBACT_name": "CUBIERTA Y FACHADA",
+  "id_Act": "22"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b8a"
+  },
+  "id_SubAct": "subact0059",
+  "SUBACT_name": "TABIQUES PLUVIALES",
+  "id_Act": "22"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b8b"
+  },
+  "id_SubAct": "subact0060",
+  "SUBACT_name": "ALQUILERES DE ENCOFRADOS",
+  "id_Act": "23"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b8c"
+  },
+  "id_SubAct": "subact0061",
+  "SUBACT_name": "ENCOFRADORES Y ESTRUCTURISTAS",
+  "id_Act": "23"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b8d"
+  },
+  "id_SubAct": "subact0062",
+  "SUBACT_name": "MATERIALES DE ENCOFRADO",
+  "id_Act": "23"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b8e"
+  },
+  "id_SubAct": "subact0063",
+  "SUBACT_name": "EQUIPOS DE PROTECCION COLECTIVA",
+  "id_Act": "24"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b8f"
+  },
+  "id_SubAct": "subact0064",
+  "SUBACT_name": "EQUIPOS DE PROTECCION INDIVIDUAL",
+  "id_Act": "24"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b90"
+  },
+  "id_SubAct": "subact0065",
+  "SUBACT_name": "EQUIPOS VARIOS",
+  "id_Act": "25"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b91"
+  },
+  "id_SubAct": "subact0066",
+  "SUBACT_name": "PROTECCION Y ESTABILIZACION DE TALUDES",
+  "id_Act": "26"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b92"
+  },
+  "id_SubAct": "subact0067",
+  "SUBACT_name": "ENTIBACIONES, TABLESTACADOS",
+  "id_Act": "26"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b93"
+  },
+  "id_SubAct": "subact0068",
+  "SUBACT_name": "EDIFICACION",
+  "id_Act": "27"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b94"
+  },
+  "id_SubAct": "subact0069",
+  "SUBACT_name": "ESTRUCTURAS METALICAS VARIAS",
+  "id_Act": "27"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b95"
+  },
+  "id_SubAct": "subact0070",
+  "SUBACT_name": "NAVES INDUSTRIALES",
+  "id_Act": "27"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b96"
+  },
+  "id_SubAct": "subact0071",
+  "SUBACT_name": "FERRETERIAS",
+  "id_Act": "28"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b97"
+  },
+  "id_SubAct": "subact0072",
+  "SUBACT_name": "AUTOESCUELAS",
+  "id_Act": "29"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b98"
+  },
+  "id_SubAct": "subact0073",
+  "SUBACT_name": "IDIOMAS",
+  "id_Act": "29"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b99"
+  },
+  "id_SubAct": "subact0074",
+  "SUBACT_name": "PREVENCION DE RIESGOS",
+  "id_Act": "29"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b9a"
+  },
+  "id_SubAct": "subact0075",
+  "SUBACT_name": "TECNICOS ESPECIFICOS",
+  "id_Act": "29"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b9b"
+  },
+  "id_SubAct": "subact0076",
+  "SUBACT_name": "GASOIL/FUEL",
+  "id_Act": "30"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b9c"
+  },
+  "id_SubAct": "subact0077",
+  "SUBACT_name": "FIBROCEMENTO",
+  "id_Act": "31"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b9d"
+  },
+  "id_SubAct": "subact0078",
+  "SUBACT_name": "GESTION Y TRATAMIENTO DE RESIDUOS",
+  "id_Act": "31"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b9e"
+  },
+  "id_SubAct": "subact0079",
+  "SUBACT_name": "EJECUCION DE HINCAS",
+  "id_Act": "32"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16b9f"
+  },
+  "id_SubAct": "subact0080",
+  "SUBACT_name": "TUBOS PARA HINCAS",
+  "id_Act": "32"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16ba0"
+  },
+  "id_SubAct": "subact0081",
+  "SUBACT_name": "BOMBAS DE HORMIGONADO",
+  "id_Act": "33"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16ba1"
+  },
+  "id_SubAct": "subact0082",
+  "SUBACT_name": "GUNITADOS",
+  "id_Act": "33"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16ba2"
+  },
+  "id_SubAct": "subact0083",
+  "SUBACT_name": "PLANTAS Y SUMINISTROS",
+  "id_Act": "33"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16ba3"
+  },
+  "id_SubAct": "subact0084",
+  "SUBACT_name": "REHABILITACIONES Y REPARACIONES ESTRUCTURALES",
+  "id_Act": "33"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16ba4"
+  },
+  "id_SubAct": "subact0085",
+  "SUBACT_name": "IMPERMEABILIZACIONES",
+  "id_Act": "34"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16ba5"
+  },
+  "id_SubAct": "subact0086",
+  "SUBACT_name": "SOFTWARE",
+  "id_Act": "35"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16ba6"
+  },
+  "id_SubAct": "subact0087",
+  "SUBACT_name": "ARQUITECTURA",
+  "id_Act": "36"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16ba7"
+  },
+  "id_SubAct": "subact0088",
+  "SUBACT_name": "INGENIERIA",
+  "id_Act": "36"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16ba8"
+  },
+  "id_SubAct": "subact0089",
+  "SUBACT_name": "LEGAL, PERITAJES, ARBITRAJES",
+  "id_Act": "36"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16ba9"
+  },
+  "id_SubAct": "subact0090",
+  "SUBACT_name": "BIM",
+  "id_Act": "36"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16baa"
+  },
+  "id_SubAct": "subact0091",
+  "SUBACT_name": "AGUA",
+  "id_Act": "37"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bab"
+  },
+  "id_SubAct": "subact0092",
+  "SUBACT_name": "CLIMATIZACION Y VENTILACION",
+  "id_Act": "37"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bac"
+  },
+  "id_SubAct": "subact0093",
+  "SUBACT_name": "CONTRAINCENDIOS",
+  "id_Act": "37"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bad"
+  },
+  "id_SubAct": "subact0094",
+  "SUBACT_name": "ELECTRICAS",
+  "id_Act": "37"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bae"
+  },
+  "id_SubAct": "subact0095",
+  "SUBACT_name": "ENERGIA SOLAR",
+  "id_Act": "37"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16baf"
+  },
+  "id_SubAct": "subact0096",
+  "SUBACT_name": "EQUIPAMIENTO E INSTALACIONES MEDICAS",
+  "id_Act": "37"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bb0"
+  },
+  "id_SubAct": "subact0097",
+  "SUBACT_name": "GAS",
+  "id_Act": "37"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bb1"
+  },
+  "id_SubAct": "subact0098",
+  "SUBACT_name": "INSTALACIONES INTEGRALES",
+  "id_Act": "37"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bb2"
+  },
+  "id_SubAct": "subact0099",
+  "SUBACT_name": "INSTALACIONES VARIAS",
+  "id_Act": "37"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bb3"
+  },
+  "id_SubAct": "subact0100",
+  "SUBACT_name": "SEGURIDAD",
+  "id_Act": "37"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bb4"
+  },
+  "id_SubAct": "subact0101",
+  "SUBACT_name": "TELECOMUNICAC",
+  "id_Act": "37"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bb5"
+  },
+  "id_SubAct": "subact0102",
+  "SUBACT_name": "MANTENIMIENTOS DE INSTALACIONES",
+  "id_Act": "37"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bb6"
+  },
+  "id_SubAct": "subact0103",
+  "SUBACT_name": "ASESORIA MEDIOAMBIENTAL",
+  "id_Act": "38"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bb7"
+  },
+  "id_SubAct": "subact0104",
+  "SUBACT_name": "CESPED ARTIFICIAL",
+  "id_Act": "38"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bb8"
+  },
+  "id_SubAct": "subact0105",
+  "SUBACT_name": "GAVIONES",
+  "id_Act": "38"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bb9"
+  },
+  "id_SubAct": "subact0106",
+  "SUBACT_name": "HIDROSIEMBRAS Y PLANTACIONES",
+  "id_Act": "38"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bba"
+  },
+  "id_SubAct": "subact0107",
+  "SUBACT_name": "PLAGUICIDAS",
+  "id_Act": "38"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bbb"
+  },
+  "id_SubAct": "subact0108",
+  "SUBACT_name": "TALA, DESBROCE, PODA, SIEMBRA, MANTENIMIENTO",
+  "id_Act": "38"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bbc"
+  },
+  "id_SubAct": "subact0109",
+  "SUBACT_name": "LIMPIEZAS",
+  "id_Act": "39"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bbd"
+  },
+  "id_SubAct": "subact0110",
+  "SUBACT_name": "MANTENIMIENTO DE MAQUINARIA",
+  "id_Act": "40"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bbe"
+  },
+  "id_SubAct": "subact0111",
+  "SUBACT_name": "MATERIALES Y RECAMBIOS",
+  "id_Act": "40"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bbf"
+  },
+  "id_SubAct": "subact0112",
+  "SUBACT_name": "CHIMENEAS",
+  "id_Act": "41"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bc0"
+  },
+  "id_SubAct": "subact0113",
+  "SUBACT_name": "MOBILIARIO BAÑOS, GRIFERIA",
+  "id_Act": "41"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bc1"
+  },
+  "id_SubAct": "subact0114",
+  "SUBACT_name": "MOBILIARIO CLINICO",
+  "id_Act": "41"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bc2"
+  },
+  "id_SubAct": "subact0115",
+  "SUBACT_name": "MOBILIARIO GENERAL",
+  "id_Act": "41"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bc3"
+  },
+  "id_SubAct": "subact0116",
+  "SUBACT_name": "MUEBLES DE OFICINA",
+  "id_Act": "41"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bc4"
+  },
+  "id_SubAct": "subact0117",
+  "SUBACT_name": "JUEGOS INFANTILES",
+  "id_Act": "42"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bc5"
+  },
+  "id_SubAct": "subact0118",
+  "SUBACT_name": "MOBILIARIO DEPORTIVO",
+  "id_Act": "42"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bc6"
+  },
+  "id_SubAct": "subact0119",
+  "SUBACT_name": "MOBILIARIO URBANO",
+  "id_Act": "42"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bc7"
+  },
+  "id_SubAct": "subact0120",
+  "SUBACT_name": "PAVIMENTO DE CAUCHO",
+  "id_Act": "42"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bc8"
+  },
+  "id_SubAct": "subact0121",
+  "SUBACT_name": "MOVIMIENTO DE TIERRAS, DEMOLICIONES",
+  "id_Act": "43"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bc9"
+  },
+  "id_SubAct": "subact0122",
+  "SUBACT_name": "OBRA CIVIL MARITIMA",
+  "id_Act": "44"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bca"
+  },
+  "id_SubAct": "subact0123",
+  "SUBACT_name": "TRABAJOS SUBACUATICOS",
+  "id_Act": "44"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bcb"
+  },
+  "id_SubAct": "subact0124",
+  "SUBACT_name": "ALBAÑILERIA",
+  "id_Act": "45"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bcc"
+  },
+  "id_SubAct": "subact0125",
+  "SUBACT_name": "OBRA CIVIL",
+  "id_Act": "45"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bcd"
+  },
+  "id_SubAct": "subact0126",
+  "SUBACT_name": "PALETERIA VARIOS",
+  "id_Act": "45"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bce"
+  },
+  "id_SubAct": "subact0127",
+  "SUBACT_name": "PLADUR Y FALSOS TECHOS",
+  "id_Act": "45"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bcf"
+  },
+  "id_SubAct": "subact0128",
+  "SUBACT_name": "TEJAS",
+  "id_Act": "45"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bd0"
+  },
+  "id_SubAct": "subact0129",
+  "SUBACT_name": "YESEROS",
+  "id_Act": "45"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bd1"
+  },
+  "id_SubAct": "subact0130",
+  "SUBACT_name": "ESCAYOLISTAS",
+  "id_Act": "45"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bd2"
+  },
+  "id_SubAct": "subact0131",
+  "SUBACT_name": "PAVIMENTOS CERAMICOS",
+  "id_Act": "46"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bd3"
+  },
+  "id_SubAct": "subact0132",
+  "SUBACT_name": "PAVIMENTOS DE GRANITO",
+  "id_Act": "46"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bd4"
+  },
+  "id_SubAct": "subact0133",
+  "SUBACT_name": "PAVIMENTOS DE HORMIGON Y RECRECIDOS",
+  "id_Act": "46"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bd5"
+  },
+  "id_SubAct": "subact0134",
+  "SUBACT_name": "PAVIMENTOS DE MADERA, PARQUET",
+  "id_Act": "46"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bd6"
+  },
+  "id_SubAct": "subact0135",
+  "SUBACT_name": "PAVIMENTOS VARIOS",
+  "id_Act": "46"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bd7"
+  },
+  "id_SubAct": "subact0136",
+  "SUBACT_name": "PIEDRAS NATURALES",
+  "id_Act": "46"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bd8"
+  },
+  "id_SubAct": "subact0137",
+  "SUBACT_name": "PULIDORES DE PAVIMENTOS",
+  "id_Act": "46"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bd9"
+  },
+  "id_SubAct": "subact0138",
+  "SUBACT_name": "PAVIMENTOS VINILICOS",
+  "id_Act": "46"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bda"
+  },
+  "id_SubAct": "subact0139",
+  "SUBACT_name": "PEQUEÑAS CONSTRUCTORAS",
+  "id_Act": "47"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bdb"
+  },
+  "id_SubAct": "subact0140",
+  "SUBACT_name": "PINTORES Y ESTUCADORES",
+  "id_Act": "48"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bdc"
+  },
+  "id_SubAct": "subact0141",
+  "SUBACT_name": "PROTECCION IGNIFUGA",
+  "id_Act": "48"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bdd"
+  },
+  "id_SubAct": "subact0142",
+  "SUBACT_name": "TRATAMIENTOS ESPECIALES",
+  "id_Act": "48"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bde"
+  },
+  "id_SubAct": "subact0143",
+  "SUBACT_name": "DEPOSITOS Y DEPURADORAS",
+  "id_Act": "49"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bdf"
+  },
+  "id_SubAct": "subact0144",
+  "SUBACT_name": "GRANDES PREFABRICADOS",
+  "id_Act": "49"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16be0"
+  },
+  "id_SubAct": "subact0145",
+  "SUBACT_name": "PEQUEÑOS PREFABRICADOS",
+  "id_Act": "49"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16be1"
+  },
+  "id_SubAct": "subact0146",
+  "SUBACT_name": "MUELLES DE CARGA",
+  "id_Act": "50"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16be2"
+  },
+  "id_SubAct": "subact0147",
+  "SUBACT_name": "PUERTAS",
+  "id_Act": "50"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16be3"
+  },
+  "id_SubAct": "subact0148",
+  "SUBACT_name": "PUERTAS AUTOMATICAS",
+  "id_Act": "50"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16be4"
+  },
+  "id_SubAct": "subact0149",
+  "SUBACT_name": "CORTE Y PERFORACION DE HORMIGON",
+  "id_Act": "51"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16be5"
+  },
+  "id_SubAct": "subact0150",
+  "SUBACT_name": "CORTES DE CARRIL",
+  "id_Act": "52"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16be6"
+  },
+  "id_SubAct": "subact0151",
+  "SUBACT_name": "DEFENSAS METALICAS",
+  "id_Act": "52"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16be7"
+  },
+  "id_SubAct": "subact0152",
+  "SUBACT_name": "HORIZONTAL",
+  "id_Act": "52"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16be8"
+  },
+  "id_SubAct": "subact0153",
+  "SUBACT_name": "SEMAFORIZACION",
+  "id_Act": "52"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16be9"
+  },
+  "id_SubAct": "subact0154",
+  "SUBACT_name": "SEÑALETICA EDIFICACION",
+  "id_Act": "52"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bea"
+  },
+  "id_SubAct": "subact0155",
+  "SUBACT_name": "VERTICAL",
+  "id_Act": "52"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16beb"
+  },
+  "id_SubAct": "subact0156",
+  "SUBACT_name": "FOTOGRAFIA, TIME LAPSE, RENDERS",
+  "id_Act": "53"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bec"
+  },
+  "id_SubAct": "subact0157",
+  "SUBACT_name": "RADAR",
+  "id_Act": "53"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bed"
+  },
+  "id_SubAct": "subact0158",
+  "SUBACT_name": "TOPOGRAFIA",
+  "id_Act": "53"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bee"
+  },
+  "id_SubAct": "subact0159",
+  "SUBACT_name": "BATEADORA",
+  "id_Act": "54"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bef"
+  },
+  "id_SubAct": "subact0160",
+  "SUBACT_name": "CARRIL Y ELEMENTOS DE VIA",
+  "id_Act": "54"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bf0"
+  },
+  "id_SubAct": "subact0161",
+  "SUBACT_name": "DESMONTAJE Y MONTAJE DE VIA, TRABAJOS EN VIA",
+  "id_Act": "54"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bf1"
+  },
+  "id_SubAct": "subact0162",
+  "SUBACT_name": "PILOTOS DE VIA",
+  "id_Act": "54"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bf2"
+  },
+  "id_SubAct": "subact0163",
+  "SUBACT_name": "INSTALACIONES, CATENARIA",
+  "id_Act": "54"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bf3"
+  },
+  "id_SubAct": "subact0164",
+  "SUBACT_name": "TRABAJOS VERTICALES",
+  "id_Act": "55"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bf4"
+  },
+  "id_SubAct": "subact0165",
+  "SUBACT_name": "ARIDOS",
+  "id_Act": "56"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bf5"
+  },
+  "id_SubAct": "subact0166",
+  "SUBACT_name": "CONTENEDORES",
+  "id_Act": "56"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bf6"
+  },
+  "id_SubAct": "subact0167",
+  "SUBACT_name": "ESPECIALES",
+  "id_Act": "56"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bf7"
+  },
+  "id_SubAct": "subact0168",
+  "SUBACT_name": "MUDANZAS",
+  "id_Act": "56"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bf8"
+  },
+  "id_SubAct": "subact0169",
+  "SUBACT_name": "TUBOS PVC, PE, PRFV",
+  "id_Act": "57"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bf9"
+  },
+  "id_SubAct": "subact0170",
+  "SUBACT_name": "TUBOS ACERO",
+  "id_Act": "57"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bfa"
+  },
+  "id_SubAct": "subact0171",
+  "SUBACT_name": "TUBOS VARIOS",
+  "id_Act": "57"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bfb"
+  },
+  "id_SubAct": "subact0172",
+  "SUBACT_name": "CAMIONES Y TRANSPORTE",
+  "id_Act": "58"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bfc"
+  },
+  "id_SubAct": "subact0173",
+  "SUBACT_name": "VENTA DE MAQUINARIA",
+  "id_Act": "58"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bfd"
+  },
+  "id_SubAct": "subact0174",
+  "SUBACT_name": "ALARMAS E INTRUSION",
+  "id_Act": "59"
+},
+{
+  "_id": {
+    "$oid": "67869095c4ff94b34ae16bfe"
+  },
+  "id_SubAct": "subact0175",
+  "SUBACT_name": "VIGILANTES DE OBRA",
+  "id_Act": "59"
+}]
