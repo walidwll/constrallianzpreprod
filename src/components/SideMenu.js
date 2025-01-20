@@ -23,11 +23,10 @@ const SideMenu = ({ isOpen, toggleMenu }) => {
     useEffect(() => {
         if (!user) {
             dispatch(fetchUser());
-        }else{
+        }else if(user?.role ==='SubManager'|| user?.role ==='SubAdministrator'){
             dispatch(fetchSubCompany({ id: user?.companyId }));
         }
     }, [dispatch, user]);
-    console.log("this is the company: "+company);
 
     const menuItems =getMenuItems(role, user, company);
 
