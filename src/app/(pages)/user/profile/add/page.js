@@ -8,6 +8,7 @@ import AddProfileForm from '@/components/ProfileCompany/AddProfileForm';
 
 export default function AddProfile() {
     const userId = useSelector((state) => state.auth?.user?.user?._id);
+    const isRP = useSelector((state) => state.auth?.user?.user?.isRP);
     const currentRole = useSelector((state) => state.auth?.user?.user?.role);
     const [loading, setLoading] = useState(true);
     const dispatch = useDispatch();
@@ -26,7 +27,7 @@ export default function AddProfile() {
 
     return (
         <div>
-            <AddProfileForm currentRole={currentRole} userId={userId}/>
+            <AddProfileForm currentRole={currentRole} userId={userId} isRP={isRP}/>
         </div>
     );
 }

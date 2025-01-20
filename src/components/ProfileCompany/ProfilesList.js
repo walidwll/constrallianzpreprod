@@ -4,11 +4,11 @@ import { DeleteProfile, UpdateProfile } from "./buttons";
 import Roles from "./Roles";
 import { formatDateToLocal } from "@/lib/utils";
 
-const ProfilesList = ({company}) => {
-  if (!company || !company.profils) {
+const ProfilesList = ({profiles}) => {
+  
+  if (!profiles) {
     return <div>No profiles available</div>; // Handle null or undefined case gracefully
   }
-  const profiles = company.profils;
     return (
         <div className="mt-6 flow-root">
           <div className="inline-block min-w-full align-middle">
@@ -98,7 +98,9 @@ const ProfilesList = ({company}) => {
                         <Roles role={profile.role} />
                       </td>
                       <td className="whitespace-nowrap px-3 py-3">
-                        {profile.isRP}
+                      <span className={`${profile.isActive ? "text-green-500" : "text-gray-500"} font-medium`}>
+                          {profile.isActive ? "Active" : "Inactive"}
+                      </span>
                       </td>
                       <td className="whitespace-nowrap py-3 pl-6 pr-3">
                         <div className="flex justify-end gap-3">

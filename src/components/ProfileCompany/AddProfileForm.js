@@ -2,7 +2,7 @@
 import { submitInviteRequest } from '@/lib/store/features/contractorSlice';
 import { Loader2 } from 'lucide-react';
 import { useDispatch } from 'react-redux';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 const ROLE_PERMISSIONS = {
@@ -10,9 +10,11 @@ const ROLE_PERMISSIONS = {
   'manager': ['manager', 'production', 'supervisor'],
   'production': ['production', 'supervisor'],
   'supervisor': [],
+  'SubManager':['SubManager', 'SubAdministrator'],
+  'SubAdministrator':['SubManager', 'SubAdministrator']
 };
 
-const AddProfileForm = ({ currentRole,userId }) => {
+const AddProfileForm = ({ currentRole, userId, isRP }) => {
   const dispatch = useDispatch();
   const inputClassName ="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
   const [error, setError] = useState('');
@@ -29,6 +31,14 @@ const AddProfileForm = ({ currentRole,userId }) => {
   });
 
   const allowedRoles = ROLE_PERMISSIONS[currentRole] || [];
+
+  useEffect(() => {
+    if (allowedRoles.length === 0) {
+      setError('You do not have permission to create profiles.');
+    } else {
+      setError('');
+    }
+  }, [allowedRoles]);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -139,7 +149,7 @@ const AddProfileForm = ({ currentRole,userId }) => {
                 </select>
               </div>
 
-              {/* Conditional Fields Based on Selected Role */}
+              {/* Conditional Fields Based on Selected Role for Client */}
               {formData.role === 'director' && (
                 <div className="flex items-center justify-center gap-4">
                 <div className="w-auto">
@@ -179,6 +189,29 @@ const AddProfileForm = ({ currentRole,userId }) => {
                 </div>
                 </div>
               )}
+              {/* End Conditional Fields Based on Selected Role for Client */}
+              {/* Conditional Fields Based on Selected Role for SubContractor */}
+              {(currentRole === "SubManager" || (currentRole === "SubAdministrator" && formData.role != "SubManager")) && isRP && (
+                <div className="flex items-center justify-center gap-4">
+                <div className="w-auto">
+                  <h3 className="text-lg font-medium text-gray-900">IS RP?</h3>
+                </div>
+                <div>
+                    <input
+                      type="checkbox"
+                      name="addProject"
+                      className="mt-2 w-5 h-5 text-green-600 bg-gray-100 border-gray-300 rounded focus:ring-green-500 focus:ring-2 checked:bg-green-600 checked:border-green-500"
+                      checked={formData.addProject}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div>
+                <span className={`text-base font-medium ${formData.addProject ? 'text-blue-600' : 'text-gray-400'}`}>{formData.addProject ? 'Yes' : 'No'}</span>
+                </div>
+                </div>
+              )}
+              
+              {/* End Conditional Fields Based on Selected Role for SubContractor */}
             <button
                 type="submit"
                 disabled={isSubmitting || allowedRoles.length === 0}
@@ -192,7 +225,6 @@ const AddProfileForm = ({ currentRole,userId }) => {
                                 <span className="text-sm sm:text-base">Create Profile</span>
                             )}
             </button>
-              {allowedRoles.length === 0 && setError('You do not have permission to create profiles.')}
               </div>
             </form>
      </div>

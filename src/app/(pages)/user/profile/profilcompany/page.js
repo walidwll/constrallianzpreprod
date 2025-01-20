@@ -7,6 +7,7 @@ import ProfilesList from '@/components/ProfileCompany/ProfilesList';
 import { fetchCompanyByContractor } from '@/lib/store/features/contractorSlice';
 import { PageLoader } from '@/components/LoadingComponent';
 import { fetchUser } from '@/lib/store/features/authSlice';
+import { fetchAllSubComapnyProfiles } from '@/lib/store/features/subContractorSlice';
 
 
 const ProfilsPage = () => {
@@ -14,6 +15,7 @@ const ProfilsPage = () => {
     const loading = useSelector((state) => state.contractor.loading);
     const user = useSelector((state) => state.auth.user?.user);
     const company = useSelector((state)=>state.contractor.company);
+    const subProfils=useSelector((state) => state.subContractor.subCompanyProfiles?.subCompanyProfiles);
 
     useEffect(() => {
             dispatch(fetchUser());
@@ -21,11 +23,19 @@ const ProfilsPage = () => {
 
     useEffect(() => {
           if (user && user._id) { // Ensure user and user._id are defined
+            if (user?.role ==='SubManager'|| user?.role ==='SubAdministrator') {
+              if(user.companyId){
+                dispatch(fetchAllSubComapnyProfiles({ id: user.companyId }));
+                console.log("this is company id : "+user.companyId);
+              }
+          } else {
               dispatch(fetchCompanyByContractor(user._id));
           }
-      }, [dispatch, user]);
+          }
+      }, [dispatch, user])
       
     if (loading) return <PageLoader />;
+    const profiles = user?.role ==='SubManager'|| user?.role ==='SubAdministrator' ? subProfils : company?.profiles;
     return(
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100">
        <main className="container mx-auto px-4 py-8">
@@ -38,9 +48,9 @@ const ProfilsPage = () => {
                 </div>
               <div className="mt-4 flex items-center justify-between gap-2 md:mt-8">
                 <Search placeholder="Search profiles..." />
-                {user.role !== "supervisor" && <CreateProfile />}
+                {user?.role !== "supervisor" && <CreateProfile />}
               </div>
-                <ProfilesList company={company}  />
+                <ProfilesList profiles={profiles} />
             </div>
         </main>
     </div>

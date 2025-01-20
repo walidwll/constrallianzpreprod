@@ -5,6 +5,7 @@ const initialState = {
   subCompanies: [],
   activities:[],
   subActivities:[],
+  subCompanyProfiles:[],
   subCompaniesDocs: [],
   subContractors: [],
   employees: [],
@@ -98,6 +99,19 @@ export const fetchSubActivities = createAsyncThunk(
   }
 );
 
+export const fetchAllSubComapnyProfiles = createAsyncThunk(
+  'subCompanies/fetchAllSubComapnyProfiles',
+  async ({ id }, { rejectWithValue }) => {
+    try {
+      const response = await fetch(`/api/sub-companies/profiles?id=${id}`);
+      if (!response.ok) throw new Error('Failed to fetch sub-company profiles');
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
 export const fetchAllSubCompanies = createAsyncThunk(
   'subCompanies/fetchAll',
   async (_, { rejectWithValue }) => {
@@ -699,6 +713,19 @@ const subContractorSlice = createSlice({
         state.subActivities = action.payload;
       })
       .addCase(fetchSubActivities.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+
+      .addCase(fetchAllSubComapnyProfiles.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchAllSubComapnyProfiles.fulfilled, (state, action) => {
+        state.loading = false;
+        state.subCompanyProfiles = action.payload;
+      })
+      .addCase(fetchAllSubComapnyProfiles.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       })

@@ -11,7 +11,7 @@ import { fetchSubCompany } from '@/lib/store/features/subContractorSlice';
 const SideMenu = ({ isOpen, toggleMenu }) => {
     const dispatch = useDispatch();
     const user = useSelector((state) => state?.auth?.user?.user ?? null);
-    const company = useSelector((state) => state?.subContractor?.subCompany?.subCompany );
+    const company = useSelector((state) => state?.subContractor?.subCompany?.subCompany ?? null );
     const role = (user?.role || 'SubManager').toLowerCase();
     //const menuItems = MENU_ITEMS_BY_ROLE[role] || MENU_ITEMS_BY_ROLE['sub-contractor'];
 
