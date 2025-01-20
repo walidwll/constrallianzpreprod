@@ -1,0 +1,49 @@
+'use client';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import Search from '@/components/ProfileCompany/Search';
+import { CreateProfile } from '@/components/ProfileCompany/buttons';
+import ProfilesList from '@/components/ProfileCompany/ProfilesList';
+import { fetchCompanyByContractor } from '@/lib/store/features/contractorSlice';
+import { PageLoader } from '@/components/LoadingComponent';
+import { fetchUser } from '@/lib/store/features/authSlice';
+
+
+const ProfilsPage = () => {
+    const dispatch = useDispatch();
+    const loading = useSelector((state) => state.contractor.loading);
+    const user = useSelector((state) => state.auth.user?.user);
+    const company = useSelector((state)=>state.contractor.company);
+
+    useEffect(() => {
+            dispatch(fetchUser());
+        }, [dispatch]);
+
+    useEffect(() => {
+          if (user && user._id) { // Ensure user and user._id are defined
+              dispatch(fetchCompanyByContractor(user._id));
+          }
+      }, [dispatch, user]);
+      
+    if (loading) return <PageLoader />;
+    return(
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100">
+       <main className="container mx-auto px-4 py-8">
+            <div className="w-full">
+              <div className="bg-white rounded-2xl shadow-lg p-6 mb-8 transform hover:shadow-xl transition-all">
+                    <h1 className="text-3xl font-bold text-gray-800 mb-2">Company Profiles Overview</h1>
+                    <p className="text-gray-400">
+                      Manage current team profiles
+                    </p>
+                </div>
+              <div className="mt-4 flex items-center justify-between gap-2 md:mt-8">
+                <Search placeholder="Search profiles..." />
+                {user.role !== "supervisor" && <CreateProfile />}
+              </div>
+                <ProfilesList company={company}  />
+            </div>
+        </main>
+    </div>
+    );
+};
+export default ProfilsPage;
