@@ -29,12 +29,15 @@ export const verifyTokenInite = async (token) => {
   }
 };
 
-export const generateInviteLink = async (newinviteRequest) => {
+export const generateInviteLink = async (newinviteRequest, isSubContractor = false) => {
     try {
       // Create a token with the inviteId
       const token = await signToken({ 
         _id: newinviteRequest._id,});
       // Return the full signup link with the token
+      if(isSubContractor){
+        return `${process.env.NEXT_PUBLIC_API_URL}/invited/subcontractor?token=${token}`;
+      }
       return `${process.env.NEXT_PUBLIC_API_URL}/invited?token=${token}`;
     } catch (error) {
       console.error('Error generating invite link:', error);

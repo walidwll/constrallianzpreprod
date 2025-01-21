@@ -6,6 +6,7 @@ import contractorReducer from './features/contractorSlice';
 import companyReducer from './features/companySlice';
 import inviteReducer from './features/inviteSlice';
 
+
 const rootReducer = combineReducers({
   auth: authReducer,
   employee: employeeReducer,

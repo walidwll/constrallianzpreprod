@@ -1,5 +1,6 @@
 'use client'
-import { submitInviteRequest } from '@/lib/store/features/contractorSlice';
+import { submitInviteRequest as submitInviteRequestContractor } from '@/lib/store/features/contractorSlice';
+import { submitInviteRequest as submitInviteRequestSubContractor } from '@/lib/store/features/subContractorSlice';
 import { Loader2 } from 'lucide-react';
 import { useDispatch } from 'react-redux';
 import React, { useEffect, useState } from 'react';
@@ -56,8 +57,10 @@ const AddProfileForm = ({ currentRole, userId, isRP }) => {
       }
 
     try {
+        const submitInviteRequest = (currentRole === 'SubManager' || currentRole === 'SubAdministrator') ? submitInviteRequestSubContractor : submitInviteRequestContractor;
            dispatch(submitInviteRequest(formData)).then((action) => {
                 if (submitInviteRequest.fulfilled.match(action)) {
+                  console.log("eyy")
                     setFormData({
                         first_name: '',
                         last_name: '',
