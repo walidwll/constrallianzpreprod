@@ -9,8 +9,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function Signup() {
     const router = useRouter();
-	const path= useSearchParams();
-    const token = path.get('token');
+	//const path= useSearchParams();
+    //const token = path.get('token');
     const dispatch = useDispatch();
     const { loading } = useSelector((state) => state.contractor);
     const [error, setError] = useState("");
@@ -43,16 +43,16 @@ export default function Signup() {
     const passwordMatch = formData.password === formData.confirmPassword;
     const inputClassName = "w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-base transition-all appearance-none";
     let decoded=null;
-    useEffect(() => {
-        if (token) {
-          dispatch(validateInviteToken(token));
-        }
-		return () => {
-			dispatch(resetInvite());
-		  };
-      }, [dispatch, token]);
+    //useEffect(() => {
+    //    if (token) {
+    //      dispatch(validateInviteToken(token));
+    //    }
+	//	return () => {
+	//		dispatch(resetInvite());
+	//	  };
+    //  }, [dispatch, token]);
 
-	  useEffect(() => {
+     useEffect(() => {
 		if (InviteRequest) {
 		  setFormData((prev) => ({
 			...prev,
