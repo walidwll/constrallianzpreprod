@@ -72,7 +72,7 @@ export default function Home() {
                 transition={{ duration: 0.5 }}
                 className="flex items-start"
               >
-                <div className="relative w-[240px] md:w-[300px] h-[96px] md:h-[128px]">
+                <div className="relative w-[120px] md:w-[150px] h-[48px] md:h-[64px]">
                   <Image
                     src="/whitelogo1.png"
                     alt="SiteManage"
