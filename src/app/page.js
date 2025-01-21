@@ -72,9 +72,9 @@ export default function Home() {
                 transition={{ duration: 0.5 }}
                 className="flex items-start"
               >
-                <div className="relative w-[120px] md:w-[150px] h-[48px] md:h-[64px]">
+                <div className="relative w-[500px] md:w-[300px] h-[160px] md:h-[192px]">
                   <Image
-                    src="/whitelogo1.png"
+                    src="/whitelogo.svg"
                     alt="SiteManage"
                     fill
                     style={{ objectFit: 'contain' }}
