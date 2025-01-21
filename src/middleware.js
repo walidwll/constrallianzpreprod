@@ -15,6 +15,7 @@ const publicPaths = [
     '/api/auth/admin/login',
     '/favicon.ico',
     '/logo.svg',
+    '/whitelogo.svg',
     '/sitemap.xml',
     '/api/sub-companies/all',
     '/api/sub-companies/activities',
@@ -143,7 +144,7 @@ export const config = {
         '/user/:path*',
         '/employee/:path*',
         '/api/:path*',
-        '/((?!login|signup|invited|favicon.ico|logo.svg|sitemap.xml|_next/static|_next/image|.next/static|.next/image|assets).*)'  // Update this line
+        '/((?!login|signup|invited|favicon.ico|logo.svg|whitelogo.svg|sitemap.xml|_next/static|_next/image|.next/static|.next/image|assets).*)'  // Update this line
     ]
 };
 
