@@ -4,20 +4,20 @@ import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 import { useDebouncedCallback } from 'use-debounce';
 
 export default function Search({ placeholder }) {
-  const searchParams = useSearchParams();
+  //const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
 
   const handleSearch = useDebouncedCallback((term) => {
     console.log(`Searching... ${term}`);
-    const params = new URLSearchParams(searchParams);
-    if(term) {
-      params.set('query', term);
-      params.set('page', '1');
-    } else {
-      params.delete('query');
-    }
-    replace(`${pathname}?${params.toString()}`);
+    //const params = new URLSearchParams(searchParams);
+    //if(term) {
+    //  params.set('query', term);
+    //  params.set('page', '1');
+    //} else {
+    //  params.delete('query');
+    //}
+    //replace(`${pathname}?${params.toString()}`);
   }, 300);
 
   return (
