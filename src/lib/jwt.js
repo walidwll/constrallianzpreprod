@@ -1,8 +1,7 @@
 import { SignJWT, jwtVerify } from 'jose';
 
-const secret = new TextEncoder().encode(process.env.JWT_SECRET);
-
 export const signToken = async (payload) => {
+    const secret = new TextEncoder().encode(process.env.JWT_SECRET);
     return new SignJWT(payload)
         .setProtectedHeader({ alg: 'HS256' })
         .setExpirationTime('1d')
@@ -11,7 +10,8 @@ export const signToken = async (payload) => {
 
 export const verifyToken = async (token) => {
     try {
-        const { payload } = await jwtVerify(token, secret);
+        const secret = new TextEncoder().encode(process.env.JWT_SECRET);
+        const { payload } = await jwtVerify(token,secret);
         return payload;
     } catch (error) {
         console.error('Error verifing token :', error);
