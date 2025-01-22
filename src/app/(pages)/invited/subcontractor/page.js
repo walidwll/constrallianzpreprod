@@ -17,9 +17,10 @@ export default function Signup() {
 	const passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*.])[a-zA-Z0-9!@#$%^&*.]{6,16}$/;
     const [passwordValid, setPasswordValid] = useState(true);
     const InviteRequest= useSelector((state) => {
-        console.log(state)
         return state.subContractor?.invite;
     });
+	const companyId = useSelector((state) => state?.auth?.user?.user?.companyId);
+	console.log(companyId);
     const [formData, setFormData] = useState({
             first_name: '',
             last_name: '', 
@@ -37,7 +38,7 @@ export default function Signup() {
             profile_city: '',
             profile_country: '',
 			inviteId:'',
-			invitedBy: '',
+			company_id: companyId,
 			role: '',
     		isRP: false,
     		addProject: false,
@@ -55,10 +56,10 @@ export default function Signup() {
 		if (InviteRequest) {
 		  setFormData((prev) => ({
 			...prev,
+			company_id: companyId,
 			first_name: InviteRequest.first_name,
 			last_name: InviteRequest.last_name,
 			email: InviteRequest.email,
-			invitedBy: InviteRequest.invitedBy,
 			role: InviteRequest.role,
     		isRP: InviteRequest.isRP,
     		addProject: InviteRequest.addProject,
@@ -66,7 +67,6 @@ export default function Signup() {
 		  }));
 		}
 	  }, [InviteRequest]);
-	  console.log('this is invite :'+InviteRequest);
 
     
     const handleChange = (e) => {
