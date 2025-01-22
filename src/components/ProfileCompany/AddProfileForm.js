@@ -7,7 +7,7 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 const ROLE_PERMISSIONS = {
-  director: ['director', 'manager', 'production', 'supervisor'],
+  'director': ['director', 'manager', 'production', 'supervisor'],
   'manager': ['manager', 'production', 'supervisor'],
   'production': ['production', 'supervisor'],
   'supervisor': [],
@@ -60,7 +60,6 @@ const AddProfileForm = ({ currentRole, userId, isRP }) => {
         const submitInviteRequest = (currentRole === 'SubManager' || currentRole === 'SubAdministrator') ? submitInviteRequestSubContractor : submitInviteRequestContractor;
            dispatch(submitInviteRequest(formData)).then((action) => {
                 if (submitInviteRequest.fulfilled.match(action)) {
-                  console.log("eyy")
                     setFormData({
                         first_name: '',
                         last_name: '',

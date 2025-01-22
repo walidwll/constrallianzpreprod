@@ -617,7 +617,7 @@ export default function Dashboard() {
                         className="ml-4 px-4 py-2 border rounded-md bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                     >
                         <option value="all">All SubContractors</option>
-                        {allSubContractors.map(sc => (
+                        {allSubContractors?.map(sc => (
                             <option key={sc._id} value={sc._id}>
                                 {sc.name}
                             </option>
@@ -755,8 +755,8 @@ export default function Dashboard() {
                                         </tr>
                                     </thead>
                                     <tbody className="bg-white divide-y divide-gray-200">
-                                        {companies.flatMap(company =>
-                                            company.contractors.map(contractor =>
+                                        {companies?.flatMap(company =>
+                                            company?.contractors?.map(contractor =>
                                                 fixedCompanyRow(company, contractor)
                                             )
                                         )}

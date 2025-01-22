@@ -20,7 +20,6 @@ export default function Signup() {
         return state.subContractor?.invite;
     });
 	const companyId = useSelector((state) => state?.auth?.user?.user?.companyId);
-	console.log(companyId);
     const [formData, setFormData] = useState({
             first_name: '',
             last_name: '', 
@@ -31,17 +30,18 @@ export default function Signup() {
             confirmPassword:'',
             identity_number:'',
             identity_type:'DNI',
-            position:'',
+            role:'',
             profile_addressligne1: '',
             profile_addressComplementaire: '',
             profile_zipcode: '',
             profile_city: '',
             profile_country: '',
 			inviteId:'',
-			company_id: companyId,
+			company_id: companyId ?? '',
 			role: '',
     		isRP: false,
     		addProject: false,
+			invitedBy: '',
         });
     const passwordMatch = formData.password === formData.confirmPassword;
     const inputClassName = "w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-base transition-all appearance-none";
@@ -64,14 +64,29 @@ export default function Signup() {
     		isRP: InviteRequest.isRP,
     		addProject: InviteRequest.addProject,
 			inviteId:InviteRequest._id,
+			invitedBy: InviteRequest.invitedBy,
 		  }));
 		}
 	  }, [InviteRequest]);
 
     
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prevData) => ({
+        const { name, value, type } = e.target;
+        
+        if (name === 'password') {
+            const isValid = passwordRegex.test(value);
+            setPasswordValid(isValid);
+        }
+    
+        if (name === 'phone_number' && !/^\d*$/.test(value)) {
+            return;
+        }
+    
+        if (name === 'profile_zipcode' && !/^\d*$/.test(value)) {
+            return;
+        }
+    
+        setFormData(prevData => ({
             ...prevData,
             [name]: value
         }));
@@ -90,7 +105,7 @@ export default function Signup() {
 			"confirmPassword",
 			"identity_number",
 			"identity_type",
-			"position",
+			"role",
 			"profile_addressligne1",
 			"profile_zipcode",
 			"profile_city",
@@ -247,8 +262,13 @@ export default function Signup() {
 								<input
 									type="tel"
 									name="phone_number"
-									value={formData.phone_number || ""}
-									onChange={(e) => { const value = e.target.value; if (/^\d*$/.test(value)&& value.length <= 9) { handleChange({ target: { name: "phone_number", value } }, "director"); } }}
+									value={formData.phone_number}
+									onChange={(e) => {
+										const value = e.target.value;
+										if (/^\d*$/.test(value) && value.length <= 9) {
+											handleChange(e);
+										}
+									}}
 									placeholder="Phone *"
 									className={`${inputClassName}  ${ errors["phone_number"] ? "border-red-500" : formData.phone_number  === "" ? "border-gray-300" : "border-green-500" }`}
 								/>
@@ -319,16 +339,16 @@ export default function Signup() {
 
                           
                              <div>
-                               <h3 className="text-lg font-medium text-gray-900 mb-4">Company Position</h3>
+                               <h3 className="text-lg font-medium text-gray-900 mb-4">Company role</h3>
                                <div className="flex gap-4">
                                  <div className="flex-1">
 								 <input
 									type="text"
-									name="position"
-									value={formData.position || ""}
+									name="role"
+									value={formData.role || ""}
 									onChange={handleChange}
-									placeholder="Position *"
-									className={`${inputClassName}  ${errors["position"] ? "border-red-500" : formData.position  === "" ? "border-gray-300" : "border-green-500" }`}
+									placeholder="role *"
+									className={`${inputClassName}  ${errors["role"] ? "border-red-500" : formData.role  === "" ? "border-gray-300" : "border-green-500" }`}
 								/>
                                  </div>
                                </div>
@@ -367,8 +387,13 @@ export default function Signup() {
 								<input
 									type="text"
 									name="profile_zipcode"
-									value={formData.profile_zipcode || ""} 
-									onChange={(e) => { const value = e.target.value; if (/^\d*$/.test(value)) { handleChange({ target: { name: "profile_zipcode", value } }, "director"); } }}
+									value={formData.profile_zipcode}
+									onChange={(e) => {
+										const value = e.target.value;
+										if (/^\d*$/.test(value)) {
+											handleChange(e);
+										}
+									}}
 									placeholder="Postal Code *"
 									className={`${inputClassName}  ${errors["profile_zipcode"] ? "border-red-500" : formData.profile_zipcode  === "" ? "border-gray-300" : "border-green-500" }`}
 								/>

@@ -4,6 +4,7 @@ import { NextResponse } from 'next/server';
 import { generateInviteLink } from '@/lib/jwt';
 import { sendInviteEmail } from '@/lib/mail';
 
+
 export async function POST(request) {
     try {
         await connectDB(); 

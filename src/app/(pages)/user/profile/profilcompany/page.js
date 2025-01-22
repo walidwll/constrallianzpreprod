@@ -12,10 +12,10 @@ import { fetchAllSubComapnyProfiles } from '@/lib/store/features/subContractorSl
 
 const ProfilsPage = () => {
     const dispatch = useDispatch();
-    const loading = useSelector((state) => state.contractor.loading);
-    const user = useSelector((state) => state.auth.user?.user);
-    const company = useSelector((state)=>state.contractor.company);
-    const subProfils=useSelector((state) => state.subContractor.subCompanyProfiles?.subCompanyProfiles);
+    const loading = useSelector((state) => state?.contractor?.loading);
+    const user = useSelector((state) => state?.auth?.user?.user);
+    const company = useSelector((state)=>state?.contractor?.company);
+    const subProfils=useSelector((state) => state?.subContractor?.subCompanyProfiles?.subCompanyProfiles);
 
     useEffect(() => {
             dispatch(fetchUser());
@@ -25,11 +25,11 @@ const ProfilsPage = () => {
           if (user && user._id) { // Ensure user and user._id are defined
             if (user?.role ==='SubManager'|| user?.role ==='SubAdministrator') {
               if(user.companyId){
-                dispatch(fetchAllSubComapnyProfiles({ id: user.companyId }));
-                console.log("this is company id : "+user.companyId);
+                dispatch(fetchAllSubComapnyProfiles({ id: user?.companyId }));
+                console.log("this is company id : "+user?.companyId);
               }
           } else {
-              dispatch(fetchCompanyByContractor(user._id));
+              dispatch(fetchCompanyByContractor(user?._id));
           }
           }
       }, [dispatch, user])
