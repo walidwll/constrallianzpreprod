@@ -207,7 +207,7 @@ export default function Signup() {
 									type="text"
 									name="first_name"
 									disabled
-									value={formData.first_name}
+									value={formData.first_name }
 									placeholder="First Name *"
 									className={`${inputClassName}  ${ errors["first_name"] ? "border-red-500" : formData.first_name  === "" ? "border-gray-300" : "border-green-500" }`}
 								/>
@@ -228,7 +228,7 @@ export default function Signup() {
 									type="email"
 									name="email"
 									disabled
-									value={formData.email}
+									value={formData.email }
 									placeholder="Email *"
 									className={`${inputClassName}  ${ errors["email"] ? "border-red-500" : formData.email  === "" ? "border-gray-300" : "border-green-500" }`}
 								/>
@@ -247,7 +247,7 @@ export default function Signup() {
 								<input
 									type="tel"
 									name="phone_number"
-									value={formData.phone_number}
+									value={formData.phone_number || ""}
 									onChange={(e) => { const value = e.target.value; if (/^\d*$/.test(value)&& value.length <= 9) { handleChange({ target: { name: "phone_number", value } }, "director"); } }}
 									placeholder="Phone *"
 									className={`${inputClassName}  ${ errors["phone_number"] ? "border-red-500" : formData.phone_number  === "" ? "border-gray-300" : "border-green-500" }`}
@@ -261,7 +261,7 @@ export default function Signup() {
 									<input
 									type="password"
 									name="password"
-									value={formData.password}
+									value={formData.password || ""}
 									onChange={handleChange}
 									placeholder="Password *"
 									className={`${inputClassName}  ${ errors["password"] ? "border-red-500" : formData.password === "" ? "border-gray-300" : passwordValid ? "border-green-500" : "border-red-500"  }`}
@@ -272,7 +272,7 @@ export default function Signup() {
 									<input
 									type="password"
 									name="confirmPassword"
-									value={formData.confirmPassword}
+									value={formData.confirmPassword || ""}
 									onChange={handleChange}
 									placeholder="Confirm Password *"
 									className={`${inputClassName}  ${ errors["confirmPassword"] ? "border-red-500" : formData.confirmPassword  && passwordMatch ? "border-green-500" : "border-gray-300" }`}
@@ -291,7 +291,7 @@ export default function Signup() {
                                     name="identity_type" 
                                     className={inputClassName}  
                                     onChange={handleChange} 
-                                    value={formData.identity_type}>
+                                    value={formData.identity_type || ""}>
 								         <option value="DNI">DNI</option>
 									    <option value="NIE">NIE</option>
                                          <option value="Other">Other</option>
@@ -306,7 +306,7 @@ export default function Signup() {
 								 <input
 									type="text"
 									name="identity_number"
-									value={formData.identity_number}
+									value={formData.identity_number || ""}
 									onChange={handleChange}
 									placeholder="identity number *"
 									className={`${inputClassName}  ${ errors["identity_number"] ? "border-red-500" : formData.identity_number  === "" ? "border-gray-300" : "border-green-500" }`}
@@ -325,7 +325,7 @@ export default function Signup() {
 								 <input
 									type="text"
 									name="position"
-									value={formData.position}
+									value={formData.position || ""}
 									onChange={handleChange}
 									placeholder="Position *"
 									className={`${inputClassName}  ${errors["position"] ? "border-red-500" : formData.position  === "" ? "border-gray-300" : "border-green-500" }`}
@@ -340,7 +340,7 @@ export default function Signup() {
 								<input
 									type="text"
 									name="profile_addressligne1"
-									value={formData.profile_addressligne1}
+									value={formData.profile_addressligne1 || ""}
 									onChange={handleChange}
 									placeholder="Address Ligne 1 *"
 									className={`${inputClassName}  ${errors["profile_addressligne1"] ? "border-red-500" : formData.profile_addressligne1  === "" ? "border-gray-300" : "border-green-500" }`}
@@ -348,7 +348,7 @@ export default function Signup() {
 								<input
 									type="text"
 									name="profile_addressComplementaire"
-									value={formData.profile_addressComplementaire}
+									value={formData.profile_addressComplementaire || ""}
 									onChange={handleChange}
 									placeholder="Address Complementaire"
 									className={inputClassName}
@@ -358,7 +358,7 @@ export default function Signup() {
 								<input
 									type="text"
 									name="profile_city"
-									value={formData.profile_city}
+									value={formData.profile_city || ""}
 									onChange={handleChange}
 									placeholder="City *"
 									className={`${inputClassName}  ${errors["profile_city"] ? "border-red-500" : formData.profile_city  === "" ? "border-gray-300" : "border-green-500" }`}
@@ -367,7 +367,7 @@ export default function Signup() {
 								<input
 									type="text"
 									name="profile_zipcode"
-									value={formData.profile_zipcode}
+									value={formData.profile_zipcode || ""} 
 									onChange={(e) => { const value = e.target.value; if (/^\d*$/.test(value)) { handleChange({ target: { name: "profile_zipcode", value } }, "director"); } }}
 									placeholder="Postal Code *"
 									className={`${inputClassName}  ${errors["profile_zipcode"] ? "border-red-500" : formData.profile_zipcode  === "" ? "border-gray-300" : "border-green-500" }`}
@@ -379,7 +379,7 @@ export default function Signup() {
 								<input
 									type="text"
 									name="profile_country"
-									value={formData.profile_country}
+									value={formData.profile_country || ""}
 									onChange={handleChange}
 									placeholder="Country *"
 									className={`${inputClassName}  ${errors["profile_country"] ? "border-red-500" : formData.profile_country  === "" ? "border-gray-300" : "border-green-500" }`}

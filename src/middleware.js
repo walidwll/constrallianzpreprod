@@ -7,6 +7,7 @@ const publicPaths = [
     '/login',
     '/signup',
     '/invited',
+    '/invited/subcontractor',
     '/admin/login',
     '/api/doc',
     '/api/contractor/join',
@@ -76,7 +77,7 @@ export async function middleware(request) {
                         headers: { 'Content-Type': 'application/json' }
                     });
                 }
-            } else if (pathname.startsWith('/api/contractor/invite/validate')) {
+            } else if (pathname.startsWith('/api/contractor/invite/validate')||pathname.startsWith('/api/sub-contractor/invite/validate')) {
                 const token = request.nextUrl.searchParams.get('token'); // Get token from query params
                 if (!token) {
                     return new NextResponse(
@@ -143,7 +144,7 @@ export const config = {
         '/user/:path*',
         '/employee/:path*',
         '/api/:path*',
-        '/((?!login|signup|invited|favicon.ico|logo.svg|sitemap.xml|_next/static|_next/image|.next/static|.next/image|assets).*)'  // Update this line
+        '/((?!login|signup|invited|invited/subcontractor|favicon.ico|logo.svg|sitemap.xml|_next/static|_next/image|.next/static|.next/image|assets).*)'  // Update this line
     ]
 };
 

@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const excludedRoutes = ['/', '/login', '/signup', '/admin/login', '/join','/invited'];
+  const excludedRoutes = ['/', '/login', '/signup', '/admin/login', '/join','/invited','/invited/subcontractor'];
   const showSideMenu = !excludedRoutes.includes(pathname);
 
   return (
