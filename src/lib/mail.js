@@ -1,15 +1,24 @@
-import { Resend } from 'resend';
+const nodemailer = require('nodemailer');
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const transporter = nodemailer.createTransport({
+	host: 'constrallianz.com', 
+	port: 465,
+	secure: true, 
+	auth: {
+	  user:  process.env.SMTP_SERVER_USERNAME,
+	  pass:  process.env.SMTP_SERVER_PASSWORD
+	}
+  });
 
 export const sendMail = async ({ to, subject, html }) => {
 	try {
-		const data = await resend.emails.send({
-			from: 'Site Management <onboarding@resend.dev>',
+		const mailOptions = {
+			from: '"Constrallianz" <support@constrallianz.com>',
 			to,
 			subject,
 			html
-		});
+		};
+		const data = await transporter.sendMail(mailOptions);
 		console.log('Email sent:', data);
 		return data;
 	} catch (error) {
@@ -21,7 +30,7 @@ export const sendMail = async ({ to, subject, html }) => {
 export const sendInviteEmail = async (email, inviteLink) => {
 	try {
 	  const mailOptions = {
-		from: '"Constrallianz" <onboarding@resend.dev>',
+		from: '"Constrallianz" <support@constrallianz.com>',
 		to: email, 
 		subject: 'You’re Invited to Join Our Platform',
 		html: `
@@ -32,9 +41,7 @@ export const sendInviteEmail = async (email, inviteLink) => {
 		`,
 	  };
   
-	  const data = await resend.emails.send(mailOptions);
-	  console.log(`Invite email sent to ${email}`);
-	  console.log('Email sent:', data);
+	  const data = await transporter.sendMail(mailOptions);
 	  return data;
 	} catch (error) {
 	  console.error('Error sending email:', error);
