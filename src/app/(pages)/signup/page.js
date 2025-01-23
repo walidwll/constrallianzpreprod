@@ -86,7 +86,7 @@ const Step1 = ({ formData, setFormData, handleNextStep, type, imageFile, setImag
     const [phoneError, setPhoneError] = useState("");
 
     useEffect(() => {
-        const { first_name,last_name,phone, email, password,prefix } = formData;
+        const { first_name,last_name,phone, email, password } = formData;
         setIsValid(first_name && last_name && email && phone && password );
     }, [formData]);
 

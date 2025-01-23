@@ -7,6 +7,7 @@ const publicPaths = [
     '/login',
     '/signup',
     '/invited',
+    '/invited/subcontractor',
     '/admin/login',
     '/api/doc',
     '/api/contractor/join',
@@ -15,7 +16,6 @@ const publicPaths = [
     '/api/auth/admin/login',
     '/favicon.ico',
     '/logo.svg',
-    '/whitelogo.svg',
     '/sitemap.xml',
     '/api/sub-companies/all',
     '/api/sub-companies/activities',
@@ -72,13 +72,18 @@ export async function middleware(request) {
         if (pathname.startsWith('/api')) {
             if (adminOnlyPaths.some(path => pathname.startsWith(path))) {
                 if (!adminData || adminData.role !== 'admin') {
-                    return new NextResponse(JSON.stringify({ error: 'Admin access required ' }), {
+                    return new NextResponse(JSON.stringify({ error: 'Admin access required' }), {
                         status: 403,
                         headers: { 'Content-Type': 'application/json' }
                     });
                 }
-            } else if (pathname.startsWith('/api/contractor/invite/validate')) {
-                const token = request.nextUrl.searchParams.get('token'); // Get token from query params
+            } else if (pathname.startsWith('/api/contractor/invite/')||pathname.startsWith('/api/sub-contractor/invite/')) {
+                let token = null; // Get token from query params
+                if(pathname.startsWith('/api/contractor/invite/complete')||pathname.startsWith('/api/sub-contractor/invite/complete')){
+                    token=request.cookies.get('invitetoken')?.value;
+                }else{
+                    token = request.nextUrl.searchParams.get('token');
+                }
                 if (!token) {
                     return new NextResponse(
                         JSON.stringify({ error: 'Token is required' }),
@@ -144,7 +149,7 @@ export const config = {
         '/user/:path*',
         '/employee/:path*',
         '/api/:path*',
-        '/((?!login|signup|invited|favicon.ico|logo.svg|whitelogo.svg|sitemap.xml|_next/static|_next/image|.next/static|.next/image|assets).*)'  // Update this line
+        '/((?!login|signup|invited|invited/subcontractor|favicon.ico|logo.svg|sitemap.xml|_next/static|_next/image|.next/static|.next/image|assets).*)'  // Update this line
     ]
 };
 

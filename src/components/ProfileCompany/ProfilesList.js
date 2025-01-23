@@ -23,7 +23,7 @@ const ProfilesList = ({profiles}) => {
                       <div>
                         <div className="mb-2 flex items-center">
                           <Image
-                            src={profile.image || `https://ui-avatars.com/api/?name=${profile.first_name+'+'+profile.last_name}&background=random`}
+                            src={profile.image || `https://ui-avatars.com/api/?name=${profile.first_name+'+'+profile.last_name}&background=random&format=png`}
                             className="mr-2 rounded-full"
                             width={28}
                             height={28}
@@ -79,7 +79,7 @@ const ProfilesList = ({profiles}) => {
                       <td className="whitespace-nowrap py-3 pl-6 pr-3">
                         <div className="flex items-center gap-3">
                           <Image
-                            src={profile.image || `https://ui-avatars.com/api/?name=${profile.first_name+'+'+profile.last_name}&background=random`}
+                            src={profile.image || `https://ui-avatars.com/api/?name=${profile.first_name+'+'+profile.last_name}&background=random&format=png`}
                             className="rounded-full"
                             width={28}
                             height={28}

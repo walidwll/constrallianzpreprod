@@ -1,6 +1,5 @@
 'use client';
-import { verifyToken, verifyTokenInite } from "@/lib/jwt";
-import { completeInviteRequest, resetInvite, validateInviteToken } from "@/lib/store/features/inviteSlice";
+import { completeInviteRequest, validateInviteToken } from "@/lib/store/features/subContractorSlice";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,12 +11,14 @@ export default function Signup() {
 	const path= useSearchParams();
     const token = path.get('token');
     const dispatch = useDispatch();
-    const { loading } = useSelector((state) => state.contractor);
+    const { loading } = useSelector((state) => state.subContractor);
     const [error, setError] = useState("");
 	const [errors, setErrors] = useState({});
 	const passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*.])[a-zA-Z0-9!@#$%^&*.]{6,16}$/;
     const [passwordValid, setPasswordValid] = useState(true);
-    const InviteRequest= useSelector((state) => state.invite?.invite);
+    const InviteRequest= useSelector((state) => {
+        return state.subContractor?.invite;
+    });
     const [formData, setFormData] = useState({
             first_name: '',
             last_name: '', 
@@ -28,29 +29,25 @@ export default function Signup() {
             confirmPassword:'',
             identity_number:'',
             identity_type:'DNI',
-            position:'',
+			position:'',
+            role:'',
             profile_addressligne1: '',
             profile_addressComplementaire: '',
             profile_zipcode: '',
             profile_city: '',
             profile_country: '',
 			inviteId:'',
-			invitedBy: '',
 			companyId: '',
 			role: '',
     		isRP: false,
-    		addProject: false,
+			invitedBy: '',
         });
     const passwordMatch = formData.password === formData.confirmPassword;
     const inputClassName = "w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-base transition-all appearance-none";
-    let decoded=null;
     useEffect(() => {
         if (token) {
           dispatch(validateInviteToken(token));
         }
-		return () => {
-			dispatch(resetInvite());
-		  };
       }, [dispatch, token]);
 
 	  useEffect(() => {
@@ -60,21 +57,33 @@ export default function Signup() {
 			first_name: InviteRequest.first_name,
 			last_name: InviteRequest.last_name,
 			email: InviteRequest.email,
-			invitedBy: InviteRequest.invitedBy,
-			companyId:InviteRequest.companyId,
 			role: InviteRequest.role,
     		isRP: InviteRequest.isRP,
-    		addProject: InviteRequest.addProject,
 			inviteId:InviteRequest._id,
+			invitedBy: InviteRequest.invitedBy,
+			companyId: InviteRequest.companyId,
 		  }));
 		}
 	  }, [InviteRequest]);
-	  console.log('this is invite :'+InviteRequest);
 
     
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prevData) => ({
+        const { name, value, type } = e.target;
+        
+        if (name === 'password') {
+            const isValid = passwordRegex.test(value);
+            setPasswordValid(isValid);
+        }
+    
+        if (name === 'phone_number' && !/^\d*$/.test(value)) {
+            return;
+        }
+    
+        if (name === 'profile_zipcode' && !/^\d*$/.test(value)) {
+            return;
+        }
+    
+        setFormData(prevData => ({
             ...prevData,
             [name]: value
         }));
@@ -93,7 +102,6 @@ export default function Signup() {
 			"confirmPassword",
 			"identity_number",
 			"identity_type",
-			"position",
 			"profile_addressligne1",
 			"profile_zipcode",
 			"profile_city",
@@ -210,7 +218,7 @@ export default function Signup() {
 									type="text"
 									name="first_name"
 									disabled
-									value={formData.first_name}
+									value={formData.first_name }
 									placeholder="First Name *"
 									className={`${inputClassName}  ${ errors["first_name"] ? "border-red-500" : formData.first_name  === "" ? "border-gray-300" : "border-green-500" }`}
 								/>
@@ -231,7 +239,7 @@ export default function Signup() {
 									type="email"
 									name="email"
 									disabled
-									value={formData.email}
+									value={formData.email }
 									placeholder="Email *"
 									className={`${inputClassName}  ${ errors["email"] ? "border-red-500" : formData.email  === "" ? "border-gray-300" : "border-green-500" }`}
 								/>
@@ -251,7 +259,12 @@ export default function Signup() {
 									type="tel"
 									name="phone_number"
 									value={formData.phone_number}
-									onChange={(e) => { const value = e.target.value; if (/^\d*$/.test(value)&& value.length <= 9) { handleChange({ target: { name: "phone_number", value } }, "director"); } }}
+									onChange={(e) => {
+										const value = e.target.value;
+										if (/^\d*$/.test(value) && value.length <= 9) {
+											handleChange(e);
+										}
+									}}
 									placeholder="Phone *"
 									className={`${inputClassName}  ${ errors["phone_number"] ? "border-red-500" : formData.phone_number  === "" ? "border-gray-300" : "border-green-500" }`}
 								/>
@@ -264,7 +277,7 @@ export default function Signup() {
 									<input
 									type="password"
 									name="password"
-									value={formData.password}
+									value={formData.password || ""}
 									onChange={handleChange}
 									placeholder="Password *"
 									className={`${inputClassName}  ${ errors["password"] ? "border-red-500" : formData.password === "" ? "border-gray-300" : passwordValid ? "border-green-500" : "border-red-500"  }`}
@@ -275,7 +288,7 @@ export default function Signup() {
 									<input
 									type="password"
 									name="confirmPassword"
-									value={formData.confirmPassword}
+									value={formData.confirmPassword || ""}
 									onChange={handleChange}
 									placeholder="Confirm Password *"
 									className={`${inputClassName}  ${ errors["confirmPassword"] ? "border-red-500" : formData.confirmPassword  && passwordMatch ? "border-green-500" : "border-gray-300" }`}
@@ -294,7 +307,7 @@ export default function Signup() {
                                     name="identity_type" 
                                     className={inputClassName}  
                                     onChange={handleChange} 
-                                    value={formData.identity_type}>
+                                    value={formData.identity_type || ""}>
 								         <option value="DNI">DNI</option>
 									    <option value="NIE">NIE</option>
                                          <option value="Other">Other</option>
@@ -309,7 +322,7 @@ export default function Signup() {
 								 <input
 									type="text"
 									name="identity_number"
-									value={formData.identity_number}
+									value={formData.identity_number || ""}
 									onChange={handleChange}
 									placeholder="identity number *"
 									className={`${inputClassName}  ${ errors["identity_number"] ? "border-red-500" : formData.identity_number  === "" ? "border-gray-300" : "border-green-500" }`}
@@ -322,13 +335,13 @@ export default function Signup() {
 
                           
                              <div>
-                               <h3 className="text-lg font-medium text-gray-900 mb-4">Company Position</h3>
+                               <h3 className="text-lg font-medium text-gray-900 mb-4">Company position</h3>
                                <div className="flex gap-4">
                                  <div className="flex-1">
 								 <input
 									type="text"
 									name="position"
-									value={formData.position}
+									value={formData.position || ""}
 									onChange={handleChange}
 									placeholder="Position at company"
 									className={`${inputClassName}  ${errors["position"] ? "border-red-500" : formData.position  === "" ? "border-gray-300" : "border-green-500" }`}
@@ -343,7 +356,7 @@ export default function Signup() {
 								<input
 									type="text"
 									name="profile_addressligne1"
-									value={formData.profile_addressligne1}
+									value={formData.profile_addressligne1 || ""}
 									onChange={handleChange}
 									placeholder="Address Ligne 1 *"
 									className={`${inputClassName}  ${errors["profile_addressligne1"] ? "border-red-500" : formData.profile_addressligne1  === "" ? "border-gray-300" : "border-green-500" }`}
@@ -351,7 +364,7 @@ export default function Signup() {
 								<input
 									type="text"
 									name="profile_addressComplementaire"
-									value={formData.profile_addressComplementaire}
+									value={formData.profile_addressComplementaire || ""}
 									onChange={handleChange}
 									placeholder="Address Complementaire"
 									className={inputClassName}
@@ -361,7 +374,7 @@ export default function Signup() {
 								<input
 									type="text"
 									name="profile_city"
-									value={formData.profile_city}
+									value={formData.profile_city || ""}
 									onChange={handleChange}
 									placeholder="City *"
 									className={`${inputClassName}  ${errors["profile_city"] ? "border-red-500" : formData.profile_city  === "" ? "border-gray-300" : "border-green-500" }`}
@@ -371,7 +384,12 @@ export default function Signup() {
 									type="text"
 									name="profile_zipcode"
 									value={formData.profile_zipcode}
-									onChange={(e) => { const value = e.target.value; if (/^\d*$/.test(value)) { handleChange({ target: { name: "profile_zipcode", value } }, "director"); } }}
+									onChange={(e) => {
+										const value = e.target.value;
+										if (/^\d*$/.test(value)) {
+											handleChange(e);
+										}
+									}}
 									placeholder="Postal Code *"
 									className={`${inputClassName}  ${errors["profile_zipcode"] ? "border-red-500" : formData.profile_zipcode  === "" ? "border-gray-300" : "border-green-500" }`}
 								/>
@@ -382,7 +400,7 @@ export default function Signup() {
 								<input
 									type="text"
 									name="profile_country"
-									value={formData.profile_country}
+									value={formData.profile_country || ""}
 									onChange={handleChange}
 									placeholder="Country *"
 									className={`${inputClassName}  ${errors["profile_country"] ? "border-red-500" : formData.profile_country  === "" ? "border-gray-300" : "border-green-500" }`}

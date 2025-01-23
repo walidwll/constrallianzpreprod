@@ -1,12 +1,12 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const initialState = {
   subCompany: null,
   subCompanies: [],
-  activities:[],
-  subActivities:[],
-  subCompaniesDocs: [],
+  activities: [],
+  subActivities: [],
   subCompanyProfiles: [],
+  subCompaniesDocs: [],
   subContractors: [],
   employees: [],
   applications: [],
@@ -26,8 +26,8 @@ const initialState = {
   employeeRequests: [],
   machineryRequests: [],
   machineryRequestFilters: {
-    machineryName: '',
-    status: 'pending'
+    machineryName: "",
+    status: "pending",
   },
   selectedMachinery: null,
   machineryDetailsLoading: false,
@@ -37,6 +37,7 @@ const initialState = {
   requestsError: null,
   requestsTotalPages: 0,
   requestsCurrentPage: 1,
+  invite: null,
   adminDocuments: null,
   adminDocumentsLoading: false,
   adminDocumentsError: null,
@@ -48,21 +49,21 @@ const initialState = {
     pagination: {
       currentPage: 1,
       totalPages: 1,
-      total: 0
-    }
+      total: 0,
+    },
   },
   subcompanyReports: [],
   reportsLoading: false,
   reportsError: null,
-  reportsPagination: null
+  reportsPagination: null,
 };
 
 export const fetchSubCompany = createAsyncThunk(
-  'subCompanies/fetchone',
+  "subCompanies/fetchone",
   async ({ id }, { rejectWithValue }) => {
     try {
       const response = await fetch(`/api/sub-companies/subcompany?id=${id}`);
-      if (!response.ok) throw new Error('Failed to fetch sub-company');
+      if (!response.ok) throw new Error("Failed to fetch sub-company");
       const data = await response.json();
       return data;
     } catch (error) {
@@ -72,11 +73,11 @@ export const fetchSubCompany = createAsyncThunk(
 );
 
 export const fetchSubCompanies = createAsyncThunk(
-  'subCompanies/fetch',
+  "subCompanies/fetch",
   async ({ id }, { rejectWithValue }) => {
     try {
       const response = await fetch(`/api/sub-companies?id=${id}`);
-      if (!response.ok) throw new Error('Failed to fetch sub-companies');
+      if (!response.ok) throw new Error("Failed to fetch sub-companies");
       const data = await response.json();
       return data;
     } catch (error) {
@@ -86,11 +87,56 @@ export const fetchSubCompanies = createAsyncThunk(
 );
 
 export const fetchSubActivities = createAsyncThunk(
-  'subCompanies/fetchSubActivities',
+  "subCompanies/fetchSubActivities",
   async ({ id }, { rejectWithValue }) => {
     try {
-      const response = await fetch(`/api/sub-companies/activities/subactivities?id_Act=${id}`);
-      if (!response.ok) throw new Error('Failed to fetch sub-companies');
+      const response = await fetch(
+        `/api/sub-companies/activities/subactivities?id_Act=${id}`
+      );
+      if (!response.ok) throw new Error("Failed to fetch sub-companies");
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const validateInviteToken = createAsyncThunk(
+  "subContractor/validateInviteToken",
+  async (token, { rejectWithValue }) => {
+    try {
+      const response = await fetch(
+        `/api/sub-contractor/invite/validate?token=${token}`
+      );
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message);
+      }
+      const data = await response.json();
+      return data.invite;
+    } catch (error) {
+      return rejectWithValue(error.message || "Something went wrong");
+    }
+  }
+);
+
+export const completeInviteRequest = createAsyncThunk(
+  "subContractor/completeInviteRequest",
+  async (formData, { rejectWithValue }) => {
+    try {
+      const response = await fetch("/api/sub-contractor/invite/complete", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      if (!response.ok) {
+        const errorData = await response.json();
+        return rejectWithValue(errorData.message);
+      }
       const data = await response.json();
       return data;
     } catch (error) {
@@ -100,11 +146,11 @@ export const fetchSubActivities = createAsyncThunk(
 );
 
 export const fetchAllSubComapnyProfiles = createAsyncThunk(
-  'subCompanies/fetchAllSubComapnyProfiles',
+  "subCompanies/fetchAllSubComapnyProfiles",
   async ({ id }, { rejectWithValue }) => {
     try {
       const response = await fetch(`/api/sub-companies/profiles?id=${id}`);
-      if (!response.ok) throw new Error('Failed to fetch sub-company profiles');
+      if (!response.ok) throw new Error("Failed to fetch sub-company profiles");
       const data = await response.json();
       return data;
     } catch (error) {
@@ -112,14 +158,12 @@ export const fetchAllSubComapnyProfiles = createAsyncThunk(
     }
   }
 );
-
 export const fetchAllSubCompanies = createAsyncThunk(
-  'subCompanies/fetchAll',
+  "subCompanies/fetchAll",
   async (_, { rejectWithValue }) => {
     try {
-
       const response = await fetch(`/api/sub-companies/all`);
-      if (!response.ok) throw new Error('Failed to fetch sub-companies');
+      if (!response.ok) throw new Error("Failed to fetch sub-companies");
       const data = await response.json();
       return data;
     } catch (error) {
@@ -129,12 +173,11 @@ export const fetchAllSubCompanies = createAsyncThunk(
 );
 
 export const fetchAllActivities = createAsyncThunk(
-  'subCompanies/fetchAllActivities',
+  "subCompanies/fetchAllActivities",
   async (_, { rejectWithValue }) => {
     try {
-
       const response = await fetch(`/api/sub-companies/activities`);
-      if (!response.ok) throw new Error('Failed to fetch activities');
+      if (!response.ok) throw new Error("Failed to fetch activities");
       const data = await response.json();
       return data;
     } catch (error) {
@@ -143,11 +186,13 @@ export const fetchAllActivities = createAsyncThunk(
   }
 );
 export const fetchAllSubCompaniesDocs = createAsyncThunk(
-  'subCompanies/fetchAllDocs',
-  async ({ page = 1, limit = 10, search = '' }, { rejectWithValue }) => {
+  "subCompanies/fetchAllDocs",
+  async ({ page = 1, limit = 10, search = "" }, { rejectWithValue }) => {
     try {
-      const response = await fetch(`/api/doc/sub-contractors?page=${page}&limit=${limit}&search=${search}`);
-      if (!response.ok) throw new Error('Failed to fetch sub-companies');
+      const response = await fetch(
+        `/api/doc/sub-contractors?page=${page}&limit=${limit}&search=${search}`
+      );
+      if (!response.ok) throw new Error("Failed to fetch sub-companies");
       const data = await response.json();
       return data;
     } catch (error) {
@@ -157,12 +202,14 @@ export const fetchAllSubCompaniesDocs = createAsyncThunk(
 );
 
 export const fetchAllMachinery = createAsyncThunk(
-  'subContractor/fetchAllMachinery',
+  "subContractor/fetchAllMachinery",
   async (filters = {}, { rejectWithValue }) => {
     try {
       const query = new URLSearchParams(filters).toString();
-      const response = await fetch(`/api/sub-contractor/machinery/all?${query}`);
-      if (!response.ok) throw new Error('Failed to fetch machinery');
+      const response = await fetch(
+        `/api/sub-contractor/machinery/all?${query}`
+      );
+      if (!response.ok) throw new Error("Failed to fetch machinery");
       return await response.json();
     } catch (error) {
       return rejectWithValue(error.message);
@@ -171,8 +218,11 @@ export const fetchAllMachinery = createAsyncThunk(
 );
 
 export const fetchEmployees = createAsyncThunk(
-  'employees/fetch',
-  async ({ filters = {}, subContractorId, userRole, page = 1, limit = 10 }, { rejectWithValue }) => {
+  "employees/fetch",
+  async (
+    { filters = {}, subContractorId, userRole, page = 1, limit = 10 },
+    { rejectWithValue }
+  ) => {
     try {
       const queryParams = new URLSearchParams({
         page: page.toString(),
@@ -180,16 +230,20 @@ export const fetchEmployees = createAsyncThunk(
         userRole,
         ...(subContractorId && { subContractorId }),
         ...(filters.name && { name: filters.name }),
-        ...(filters.isActive !== '' && { isActive: filters.isActive }),
-        ...(filters.minWorkedHours && { minWorkedHours: filters.minWorkedHours }),
+        ...(filters.isActive !== "" && { isActive: filters.isActive }),
+        ...(filters.minWorkedHours && {
+          minWorkedHours: filters.minWorkedHours,
+        }),
         ...(filters.quality && { quality: filters.quality }),
         ...(filters.technical && { technical: filters.technical }),
         ...(filters.punctuality && { punctuality: filters.punctuality }),
         ...(filters.safety && { safety: filters.safety }),
       });
 
-      const response = await fetch(`/api/sub-contractor/employee?${queryParams}`);
-      if (!response.ok) throw new Error('Failed to fetch employees');
+      const response = await fetch(
+        `/api/sub-contractor/employee?${queryParams}`
+      );
+      if (!response.ok) throw new Error("Failed to fetch employees");
       return await response.json();
     } catch (error) {
       return rejectWithValue(error.message);
@@ -197,7 +251,7 @@ export const fetchEmployees = createAsyncThunk(
   }
 );
 export const fetchCompanyDetails = createAsyncThunk(
-  'subCompanies/fetchDetails',
+  "subCompanies/fetchDetails",
   async (id, { rejectWithValue }) => {
     try {
       const response = await fetch(`/api/sub-companies/details?id=${id}`);
@@ -213,29 +267,29 @@ export const fetchCompanyDetails = createAsyncThunk(
   }
 );
 export const fetchApplications = createAsyncThunk(
-  'applications/fetch',
+  "applications/fetch",
   async ({ subContractorId }, { rejectWithValue }) => {
     try {
       const response = await fetch(
         `/api/sub-contractor/employee/requests?subContractorId=${subContractorId}`
       );
-      if (!response.ok) throw new Error('Failed to fetch applications');
+      if (!response.ok) throw new Error("Failed to fetch applications");
       const data = await response.json();
 
       return Array.isArray(data.applications) ? data.applications : [];
     } catch (error) {
-      console.error('Fetch error:', error.message);
+      console.error("Fetch error:", error.message);
       return rejectWithValue(error.message);
     }
   }
 );
 
 export const updateSubContractor = createAsyncThunk(
-  'subContractor/update',
+  "subContractor/update",
   async (formData, { rejectWithValue }) => {
     try {
-      const response = await fetch('/api/sub-contractor/update', {
-        method: 'PUT',
+      const response = await fetch("/api/sub-contractor/update", {
+        method: "PUT",
         body: formData,
       });
       if (!response.ok) {
@@ -251,13 +305,13 @@ export const updateSubContractor = createAsyncThunk(
 );
 
 export const updateApplicationStatus = createAsyncThunk(
-  'applications/updateStatus',
+  "applications/updateStatus",
   async ({ applicationId, status }, { dispatch, rejectWithValue }) => {
     try {
-      const response = await fetch('/api/sub-contractor/employee/requests', {
-        method: 'POST',
+      const response = await fetch("/api/sub-contractor/employee/requests", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ applicationId, status }),
       });
@@ -265,14 +319,16 @@ export const updateApplicationStatus = createAsyncThunk(
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.message || 'Failed to update application status');
+        throw new Error(data.message || "Failed to update application status");
       }
 
-      if (status === 'approved') {
-        await dispatch(addEmployeeToCompany({
-          employeeId: data.application.employeeId._id,
-          subContractorId: data.application.subContractorId
-        }));
+      if (status === "approved") {
+        await dispatch(
+          addEmployeeToCompany({
+            employeeId: data.application.employeeId._id,
+            subContractorId: data.application.subContractorId,
+          })
+        );
       }
 
       return data.application;
@@ -283,15 +339,18 @@ export const updateApplicationStatus = createAsyncThunk(
 );
 
 export const addEmployeeToProject = createAsyncThunk(
-  'projects/addEmployee',
+  "projects/addEmployee",
   async ({ employeeId, projectId }, { rejectWithValue }) => {
     try {
-      const response = await fetch(`/api/sub-contractor/project/${projectId}/employee/${employeeId}`, {
-        method: 'POST',
-      });
+      const response = await fetch(
+        `/api/sub-contractor/project/${projectId}/employee/${employeeId}`,
+        {
+          method: "POST",
+        }
+      );
       const data = await response.json();
       if (!response.ok) {
-        throw new Error(data.message || 'Failed to add employee to project');
+        throw new Error(data.message || "Failed to add employee to project");
       }
       return data.project;
     } catch (error) {
@@ -301,13 +360,13 @@ export const addEmployeeToProject = createAsyncThunk(
 );
 
 export const addEmployeeToCompany = createAsyncThunk(
-  'subContractor/addEmployee',
+  "subContractor/addEmployee",
   async ({ employeeId, subContractorId }, { rejectWithValue }) => {
     try {
-      const response = await fetch('/api/sub-contractor/employee/add', {
-        method: 'POST',
+      const response = await fetch("/api/sub-contractor/employee/add", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ employeeId, subContractorId }),
       });
@@ -325,8 +384,11 @@ export const addEmployeeToCompany = createAsyncThunk(
 );
 
 export const fetchMachinery = createAsyncThunk(
-  'machinery/fetch',
-  async ({ page = 1, limit = 10, search = '', subcontractorId }, { rejectWithValue }) => {
+  "machinery/fetch",
+  async (
+    { page = 1, limit = 10, search = "", subcontractorId },
+    { rejectWithValue }
+  ) => {
     try {
       const queryParams = new URLSearchParams({
         subcontractorId: subcontractorId,
@@ -335,8 +397,10 @@ export const fetchMachinery = createAsyncThunk(
         search,
       }).toString();
 
-      const response = await fetch(`/api/sub-contractor/machinery?${queryParams}`);
-      if (!response.ok) throw new Error('Failed to fetch machinery');
+      const response = await fetch(
+        `/api/sub-contractor/machinery?${queryParams}`
+      );
+      if (!response.ok) throw new Error("Failed to fetch machinery");
       const data = await response.json();
       return data;
     } catch (error) {
@@ -346,19 +410,19 @@ export const fetchMachinery = createAsyncThunk(
 );
 
 export const addMachinery = createAsyncThunk(
-  'machinery/add',
+  "machinery/add",
   async (machineryData, { rejectWithValue }) => {
     try {
-      const response = await fetch('/api/sub-contractor/machinery', {
-        method: 'POST',
+      const response = await fetch("/api/sub-contractor/machinery", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(machineryData),
       });
       if (!response.ok) {
         const error = await response.json();
-        throw new Error(error.message || 'Failed to add machinery');
+        throw new Error(error.message || "Failed to add machinery");
       }
       const data = await response.json();
       return data;
@@ -369,19 +433,19 @@ export const addMachinery = createAsyncThunk(
 );
 
 export const updateMachinery = createAsyncThunk(
-  'machinery/update',
+  "machinery/update",
   async ({ id, updates }, { rejectWithValue }) => {
     try {
-      const response = await fetch('/api/sub-contractor/machinery', {
-        method: 'PUT',
+      const response = await fetch("/api/sub-contractor/machinery", {
+        method: "PUT",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ id, updates }),
       });
       if (!response.ok) {
         const error = await response.json();
-        throw new Error(error.message || 'Failed to update machinery');
+        throw new Error(error.message || "Failed to update machinery");
       }
       const data = await response.json();
       return data;
@@ -392,19 +456,19 @@ export const updateMachinery = createAsyncThunk(
 );
 
 export const deleteMachinery = createAsyncThunk(
-  'machinery/delete',
+  "machinery/delete",
   async (id, { rejectWithValue }) => {
     try {
-      const response = await fetch('/api/sub-contractor/machinery', {
-        method: 'DELETE',
+      const response = await fetch("/api/sub-contractor/machinery", {
+        method: "DELETE",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ id }),
       });
       if (!response.ok) {
         const error = await response.json();
-        throw new Error(error.message || 'Failed to delete machinery');
+        throw new Error(error.message || "Failed to delete machinery");
       }
       const data = await response.json();
       return id;
@@ -413,13 +477,37 @@ export const deleteMachinery = createAsyncThunk(
     }
   }
 );
+export const submitInviteRequest = createAsyncThunk(
+  "subcontractor/submitInviteRequest",
+  async (formData, { rejectWithValue }) => {
+    try {
+      const response = await fetch("/api/sub-contractor/invite", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      if (!response.ok) {
+        const errorData = await response.json();
+        return rejectWithValue(errorData.message);
+      }
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
 
 export const fetchProjects = createAsyncThunk(
-  'projects/fetch',
+  "projects/fetch",
   async ({ subcontractorId }, { rejectWithValue }) => {
     try {
-      const response = await fetch(`/api/sub-contractor/projects?subcontractorId=${subcontractorId}`);
-      if (!response.ok) throw new Error('Failed to fetch projects');
+      const response = await fetch(
+        `/api/sub-contractor/projects?subcontractorId=${subcontractorId}`
+      );
+      if (!response.ok) throw new Error("Failed to fetch projects");
       const data = await response.json();
       return data;
     } catch (error) {
@@ -429,11 +517,13 @@ export const fetchProjects = createAsyncThunk(
 );
 
 export const fetchEmployeeRequests = createAsyncThunk(
-  'employeeRequests/fetch',
+  "employeeRequests/fetch",
   async ({ subContractorId }, { rejectWithValue }) => {
     try {
-      const response = await fetch(`/api/sub-contractor/employee/${subContractorId}`);
-      if (!response.ok) throw new Error('Failed to fetch employee requests');
+      const response = await fetch(
+        `/api/sub-contractor/employee/${subContractorId}`
+      );
+      if (!response.ok) throw new Error("Failed to fetch employee requests");
       const data = await response.json();
       return data.requests;
     } catch (error) {
@@ -443,16 +533,23 @@ export const fetchEmployeeRequests = createAsyncThunk(
 );
 
 export const updateEmployeeRequestStatus = createAsyncThunk(
-  'employeeRequests/updateStatus',
-  async ({ requestId, status, subContractorId, projectId, hourlyRate }, { rejectWithValue }) => {
+  "employeeRequests/updateStatus",
+  async (
+    { requestId, status, subContractorId, projectId, hourlyRate },
+    { rejectWithValue }
+  ) => {
     try {
-      const response = await fetch(`/api/sub-contractor/employee/${subContractorId}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ requestId, status, projectId, hourlyRate }),
-      });
+      const response = await fetch(
+        `/api/sub-contractor/employee/${subContractorId}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ requestId, status, projectId, hourlyRate }),
+        }
+      );
       const data = await response.json();
-      if (!response.ok) throw new Error(data.message || 'Failed to update request status');
+      if (!response.ok)
+        throw new Error(data.message || "Failed to update request status");
       return data.request;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -461,15 +558,15 @@ export const updateEmployeeRequestStatus = createAsyncThunk(
 );
 
 export const createMachineryRequest = createAsyncThunk(
-  'subContractor/createMachineryRequest',
+  "subContractor/createMachineryRequest",
   async ({ machineryId, projectId }, { rejectWithValue }) => {
     try {
-      const response = await fetch('/api/sub-contractor/machinery/all', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("/api/sub-contractor/machinery/all", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ machineryId, projectId }),
       });
-      if (!response.ok) throw new Error('Failed to create machinery request');
+      if (!response.ok) throw new Error("Failed to create machinery request");
       const data = await response.json();
       return data.request;
     } catch (error) {
@@ -479,49 +576,52 @@ export const createMachineryRequest = createAsyncThunk(
 );
 
 export const getMachineryRequests = createAsyncThunk(
-  'subContractor/getMachineryRequests',
+  "subContractor/getMachineryRequests",
   async ({ subContractorId, filters = {} }, { rejectWithValue }) => {
     try {
       const queryParams = new URLSearchParams({
         subContractorId,
         ...(filters.machineryName && { machineryName: filters.machineryName }),
-        ...(filters.status && { status: filters.status })
+        ...(filters.status && { status: filters.status }),
       }).toString();
 
-      const response = await fetch(`/api/sub-contractor/machinery/requests?${queryParams}`);
-      if (!response.ok) throw new Error('Failed to fetch machinery requests');
+      const response = await fetch(
+        `/api/sub-contractor/machinery/requests?${queryParams}`
+      );
+      if (!response.ok) throw new Error("Failed to fetch machinery requests");
       const data = await response.json();
       return data.requests;
     } catch (error) {
       return rejectWithValue(error.message);
     }
   }
-)
+);
 
 export const updateMachineryRequestStatus = createAsyncThunk(
-  'subContractor/updateMachineryRequestStatus',
+  "subContractor/updateMachineryRequestStatus",
   async ({ requestId, status, projectId }, { rejectWithValue }) => {
     try {
       const response = await fetch(`/api/sub-contractor/machinery/requests`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ requestId, status, projectId }),
       });
-      if (!response.ok) throw new Error('Failed to update machinery request status');
+      if (!response.ok)
+        throw new Error("Failed to update machinery request status");
       const data = await response.json();
       return data.request;
     } catch (error) {
       return rejectWithValue(error.message);
     }
   }
-)
+);
 
 export const fetchMachineryDetails = createAsyncThunk(
-  'machinery/fetchDetails',
+  "machinery/fetchDetails",
   async (id, { rejectWithValue }) => {
     try {
       const response = await fetch(`/api/sub-contractor/machinery/${id}`);
-      if (!response.ok) throw new Error('Failed to fetch machinery details');
+      if (!response.ok) throw new Error("Failed to fetch machinery details");
       return await response.json();
     } catch (error) {
       return rejectWithValue(error.message);
@@ -530,15 +630,15 @@ export const fetchMachineryDetails = createAsyncThunk(
 );
 
 export const updateMachineryReview = createAsyncThunk(
-  'machinery/updateReview',
+  "machinery/updateReview",
   async ({ id, rating }, { rejectWithValue }) => {
     try {
       const response = await fetch(`/api/sub-contractor/machinery/${id}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ rating }),
       });
-      if (!response.ok) throw new Error('Failed to update machinery review');
+      if (!response.ok) throw new Error("Failed to update machinery review");
       return await response.json();
     } catch (error) {
       return rejectWithValue(error.message);
@@ -547,18 +647,21 @@ export const updateMachineryReview = createAsyncThunk(
 );
 
 export const addMachineryHours = createAsyncThunk(
-  'machinery/addHours',
+  "machinery/addHours",
   async ({ id, projectId, hours }, { rejectWithValue }) => {
     try {
-      const response = await fetch(`/api/sub-contractor/machinery/${id}/hours`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ projectId, hours }),
-      });
+      const response = await fetch(
+        `/api/sub-contractor/machinery/${id}/hours`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ projectId, hours }),
+        }
+      );
 
       if (!response.ok) {
         const error = await response.json();
-        throw new Error(error.message || 'Failed to add hours');
+        throw new Error(error.message || "Failed to add hours");
       }
 
       const data = await response.json();
@@ -570,12 +673,16 @@ export const addMachineryHours = createAsyncThunk(
 );
 
 export const fetchSubContractorRequests = createAsyncThunk(
-  'subContractor/fetchRequests',
+  "subContractor/fetchRequests",
   async ({ page = 1, limit = 10, status }, { rejectWithValue }) => {
     try {
-      const query = new URLSearchParams({ page, limit, ...(status && { status }) });
+      const query = new URLSearchParams({
+        page,
+        limit,
+        ...(status && { status }),
+      });
       const response = await fetch(`/api/sub-contractor/requests?${query}`);
-      if (!response.ok) throw new Error('Failed to fetch requests');
+      if (!response.ok) throw new Error("Failed to fetch requests");
       return await response.json();
     } catch (error) {
       return rejectWithValue(error.message);
@@ -584,15 +691,15 @@ export const fetchSubContractorRequests = createAsyncThunk(
 );
 
 export const updateSubContractorRequestStatus = createAsyncThunk(
-  'subContractor/updateRequestStatus',
+  "subContractor/updateRequestStatus",
   async ({ requestId, status }, { rejectWithValue }) => {
     try {
-      const response = await fetch('/api/sub-contractor/requests', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("/api/sub-contractor/requests", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ requestId, status }),
       });
-      if (!response.ok) throw new Error('Failed to update request');
+      if (!response.ok) throw new Error("Failed to update request");
       return await response.json();
     } catch (error) {
       return rejectWithValue(error.message);
@@ -601,11 +708,11 @@ export const updateSubContractorRequestStatus = createAsyncThunk(
 );
 
 export const fetchAdminDocuments = createAsyncThunk(
-  'subContractor/fetchAdminDocuments',
+  "subContractor/fetchAdminDocuments",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await fetch('/api/doc');
-      if (!response.ok) throw new Error('Failed to fetch documents');
+      const response = await fetch("/api/doc");
+      if (!response.ok) throw new Error("Failed to fetch documents");
       return await response.json();
     } catch (error) {
       return rejectWithValue(error.message);
@@ -614,14 +721,14 @@ export const fetchAdminDocuments = createAsyncThunk(
 );
 
 export const updateAdminDocuments = createAsyncThunk(
-  'subContractor/updateAdminDocuments',
+  "subContractor/updateAdminDocuments",
   async (formData, { rejectWithValue }) => {
     try {
-      const response = await fetch('/api/admin/documents', {
-        method: 'POST',
+      const response = await fetch("/api/admin/documents", {
+        method: "POST",
         body: formData,
       });
-      if (!response.ok) throw new Error('Failed to update documents');
+      if (!response.ok) throw new Error("Failed to update documents");
       return await response.json();
     } catch (error) {
       return rejectWithValue(error.message);
@@ -630,11 +737,13 @@ export const updateAdminDocuments = createAsyncThunk(
 );
 
 export const fetchResources = createAsyncThunk(
-  'subContractor/fetchResources',
+  "subContractor/fetchResources",
   async ({ subContractorId, type, page, limit }, { rejectWithValue }) => {
     try {
-      const response = await fetch(`/api/sub-companies/resources?subContractorId=${subContractorId}&type=${type}&page=${page}&limit=${limit}`);
-      if (!response.ok) throw new Error('Failed to fetch resources');
+      const response = await fetch(
+        `/api/sub-companies/resources?subContractorId=${subContractorId}&type=${type}&page=${page}&limit=${limit}`
+      );
+      if (!response.ok) throw new Error("Failed to fetch resources");
       return await response.json();
     } catch (error) {
       return rejectWithValue(error.message);
@@ -643,24 +752,27 @@ export const fetchResources = createAsyncThunk(
 );
 
 export const fetchSubCompanyReports = createAsyncThunk(
-  'subContractor/fetchReports',
-  async ({ subContractorId, month, year, page = 1, limit = 10 }, { rejectWithValue }) => {
+  "subContractor/fetchReports",
+  async (
+    { subContractorId, month, year, page = 1, limit = 10 },
+    { rejectWithValue }
+  ) => {
     try {
       const queryParams = new URLSearchParams({
         subContractorId,
         ...(month && { month }),
         ...(year && { year }),
         page: page.toString(),
-        limit: limit.toString()
+        limit: limit.toString(),
       }).toString();
 
       const response = await fetch(`/api/sub-companies/reports?${queryParams}`);
-      if (!response.ok) throw new Error('Failed to fetch reports');
-      
+      if (!response.ok) throw new Error("Failed to fetch reports");
+
       const data = await response.json();
       return {
         reports: data.reports,
-        pagination: data.pagination
+        pagination: data.pagination,
       };
     } catch (error) {
       return rejectWithValue(error.message);
@@ -669,18 +781,56 @@ export const fetchSubCompanyReports = createAsyncThunk(
 );
 
 const subContractorSlice = createSlice({
-  name: 'subContractor',
+  name: "subContractor",
   initialState,
   reducers: {
     updateMachineryRequestFilters: (state, action) => {
       state.machineryRequestFilters = {
         ...state.machineryRequestFilters,
-        ...action.payload
+        ...action.payload,
       };
-    }
+    },
+  },
+  resetInvite: (state) => {
+    state.invite = null;
+    state.loading = false;
+    state.error = null;
   },
   extraReducers: (builder) => {
     builder
+      .addCase(submitInviteRequest.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(submitInviteRequest.fulfilled, (state, action) => {
+        state.loading = false;
+        state.invite = action.payload;
+      })
+      .addCase(validateInviteToken.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(validateInviteToken.fulfilled, (state, action) => {
+        state.loading = false;
+        state.invite = action.payload;
+        state.requestStatus = "success";
+      })
+      .addCase(validateInviteToken.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+      .addCase(completeInviteRequest.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(completeInviteRequest.fulfilled, (state, action) => {
+        state.loading = false;
+        state.requestStatus = "success";
+      })
+      .addCase(completeInviteRequest.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
       .addCase(fetchSubCompany.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -717,7 +867,7 @@ const subContractorSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       })
-    
+
       .addCase(fetchAllSubComapnyProfiles.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -778,13 +928,14 @@ const subContractorSlice = createSlice({
       })
       .addCase(fetchApplications.fulfilled, (state, action) => {
         state.loading = false;
-        state.applications = Array.isArray(action.payload) ? action.payload : [];
+        state.applications = Array.isArray(action.payload)
+          ? action.payload
+          : [];
       })
       .addCase(fetchApplications.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       })
-
 
       .addCase(updateSubContractor.pending, (state) => {
         state.loading = true;
@@ -829,7 +980,8 @@ const subContractorSlice = createSlice({
       .addCase(updateApplicationStatus.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
-      }).addCase(fetchCompanyDetails.pending, (state) => {
+      })
+      .addCase(fetchCompanyDetails.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
@@ -861,6 +1013,7 @@ const subContractorSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       })
+
       .addCase(addEmployeeToCompany.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -907,7 +1060,9 @@ const subContractorSlice = createSlice({
       })
       .addCase(updateMachinery.fulfilled, (state, action) => {
         state.loading = false;
-        const index = state.machinery.findIndex(m => m._id === action.payload._id);
+        const index = state.machinery.findIndex(
+          (m) => m._id === action.payload._id
+        );
         if (index !== -1) {
           state.machinery[index] = action.payload;
         }
@@ -922,7 +1077,9 @@ const subContractorSlice = createSlice({
       })
       .addCase(deleteMachinery.fulfilled, (state, action) => {
         state.loading = false;
-        state.machinery = state.machinery.filter(m => m._id !== action.payload);
+        state.machinery = state.machinery.filter(
+          (m) => m._id !== action.payload
+        );
       })
       .addCase(deleteMachinery.rejected, (state, action) => {
         state.loading = false;
@@ -1076,7 +1233,9 @@ const subContractorSlice = createSlice({
         state.requestsError = action.payload;
       })
       .addCase(updateSubContractorRequestStatus.fulfilled, (state, action) => {
-        const index = state.requests.findIndex(r => r._id === action.payload.request._id);
+        const index = state.requests.findIndex(
+          (r) => r._id === action.payload.request._id
+        );
         if (index !== -1) {
           state.requests[index] = action.payload.request;
         }
@@ -1108,8 +1267,7 @@ const subContractorSlice = createSlice({
       .addCase(fetchAllSubCompaniesDocs.pending, (state) => {
         state.loading = true;
         state.error = null;
-      }
-      )
+      })
       .addCase(fetchAllSubCompaniesDocs.fulfilled, (state, action) => {
         state.loading = false;
         state.subCompaniesDocs = action.payload;
@@ -1124,7 +1282,7 @@ const subContractorSlice = createSlice({
       })
       .addCase(fetchResources.fulfilled, (state, action) => {
         state.resources.loading = false;
-        if (action.meta.arg.type === 'employees') {
+        if (action.meta.arg.type === "employees") {
           state.resources.employees = action.payload.data;
         } else {
           state.resources.machinery = action.payload.data;
@@ -1148,7 +1306,6 @@ const subContractorSlice = createSlice({
         state.reportsLoading = false;
         state.reportsError = action.payload;
       });
-
   },
 });
 

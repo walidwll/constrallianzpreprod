@@ -1,12 +1,13 @@
 'use client'
-import { submitInviteRequest } from '@/lib/store/features/contractorSlice';
+import { submitInviteRequest as submitInviteRequestContractor } from '@/lib/store/features/contractorSlice';
+import { submitInviteRequest as submitInviteRequestSubContractor } from '@/lib/store/features/subContractorSlice';
 import { Loader2 } from 'lucide-react';
 import { useDispatch } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 const ROLE_PERMISSIONS = {
-  director: ['director', 'manager', 'production', 'supervisor'],
+  'director': ['director', 'manager', 'production', 'supervisor'],
   'manager': ['manager', 'production', 'supervisor'],
   'production': ['production', 'supervisor'],
   'supervisor': [],
@@ -14,7 +15,7 @@ const ROLE_PERMISSIONS = {
   'SubAdministrator':['SubManager', 'SubAdministrator']
 };
 
-const AddProfileForm = ({ currentRole, userId, isRP }) => {
+const AddProfileForm = ({ currentRole, userId,companyId, isRP }) => {
   const dispatch = useDispatch();
   const inputClassName ="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
   const [error, setError] = useState('');
@@ -26,10 +27,10 @@ const AddProfileForm = ({ currentRole, userId, isRP }) => {
     email: '',
     role: '',
     invitedBy:userId,
+    companyId:companyId,
     isRP: false, // For directors
     addProject: false, // For production managers
   });
-
   const allowedRoles = ROLE_PERMISSIONS[currentRole] || [];
 
   useEffect(() => {
@@ -57,6 +58,7 @@ const AddProfileForm = ({ currentRole, userId, isRP }) => {
       }
 
     try {
+        const submitInviteRequest = (currentRole === 'SubManager' || currentRole === 'SubAdministrator') ? submitInviteRequestSubContractor : submitInviteRequestContractor;
            dispatch(submitInviteRequest(formData)).then((action) => {
                 if (submitInviteRequest.fulfilled.match(action)) {
                     setFormData({
@@ -65,6 +67,7 @@ const AddProfileForm = ({ currentRole, userId, isRP }) => {
                         email: '',
                         role: '',
                         invitedBy:userId,
+                        companyId:companyId,
                         isRP: false, // For directors
                         addProject: false,
                     });
@@ -169,7 +172,7 @@ const AddProfileForm = ({ currentRole, userId, isRP }) => {
                 </div>
               </div>
               )}
-
+              
               {formData.role === 'production' && (
                 <div className="flex items-center justify-center gap-4">
                 <div className="w-auto">

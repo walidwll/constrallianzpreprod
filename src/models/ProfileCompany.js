@@ -67,7 +67,7 @@ const profileCompanySchema = new mongoose.Schema({
     },
     role: {
         type: String,
-        enum: ['director', 'manager', 'production', 'supervisor'],
+        enum: ['director', 'manager', 'production', 'supervisor', 'SubAdministrator', 'SubManager'],
         default: 'director',
     },
     isRP: {
