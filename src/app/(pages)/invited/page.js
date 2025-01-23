@@ -36,6 +36,7 @@ export default function Signup() {
             profile_country: '',
 			inviteId:'',
 			invitedBy: '',
+			companyId: '',
 			role: '',
     		isRP: false,
     		addProject: false,
@@ -60,6 +61,7 @@ export default function Signup() {
 			last_name: InviteRequest.last_name,
 			email: InviteRequest.email,
 			invitedBy: InviteRequest.invitedBy,
+			companyId:InviteRequest.companyId,
 			role: InviteRequest.role,
     		isRP: InviteRequest.isRP,
     		addProject: InviteRequest.addProject,
@@ -328,7 +330,7 @@ export default function Signup() {
 									name="position"
 									value={formData.position}
 									onChange={handleChange}
-									placeholder="Position *"
+									placeholder="Position at company"
 									className={`${inputClassName}  ${errors["position"] ? "border-red-500" : formData.position  === "" ? "border-gray-300" : "border-green-500" }`}
 								/>
                                  </div>

@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 import connectDB from "@/lib/db";
-import Company from "@/models/Company";
-import profileCompany from "@/models/ProfileCompany";
 import SubContractorRequest from "@/models/SubContractorRequests";
+import SubCompany from "@/models/SubCompany";
+import SubContractor from "@/models/SubContractor";
 
 export async function POST(request) {
   try {
@@ -25,11 +25,10 @@ export async function POST(request) {
       profile_city,
       profile_country,
       inviteId,
-      company_id,
+      companyId,
       invitedBy,
       role,
       isRP,
-      addProject,
     } = formData;
     console.log(formData);
     if (
@@ -46,7 +45,8 @@ export async function POST(request) {
       !profile_city ||
       !profile_country ||
       !role ||
-      !invitedBy
+      !invitedBy ||
+      !companyId
     ) {
       return NextResponse.json(
         { message: "All required fields must be filled" },
@@ -62,44 +62,42 @@ export async function POST(request) {
         { status: 404 }
       );
     }
-    const company = await Company.findOne({ profils: { $in: [invitedBy] } })
-      .populate("profils")
-      .exec();
-    if (!company) {
-      return new Response(JSON.stringify({ message: "Company not found" }), {
+    const subCompany = await SubCompany.findOne({ _id: companyId});
+    if (!subCompany) {
+      return new Response(JSON.stringify({ message: "subCompany not found" }), {
         status: 404,
       });
     }
-
-    const profile = await profileCompany.create({
-      first_name,
+    const subContractor = await SubContractor.create({
+      first_name, 
       last_name,
       email,
-      phone_number,
-      password,
-      position,
-      identity_number,
-      identity_type,
-      profile_addressligne1,
-      profile_addressComplementaire,
-      profile_zipcode,
-      profile_city,
-      profile_country,
-      role,
+      phone: phone_number,
+      password, 
+      companyPosition: position, 
+      identity: { 
+          type: identity_type, 
+          number: identity_number,
+      },
+      address: {
+          addressligne1: profile_addressligne1, 
+          addressComplementaire: profile_addressComplementaire || "", 
+          postalCode: profile_zipcode, 
+          city: profile_city, 
+          country: profile_country,
+      },
+      role, 
       isRP,
-      companyId: company._id,
-    });
-
-    company.profils.push(profile._id);
-    await company.save();
+      companyId: subCompany._id, 
+  });
 
     subContractorRequest.status = "approved";
     await subContractorRequest.save();
 
     return NextResponse.json(
       {
-        message: "signup request approved and profile created",
-        profile: profile,
+        message: "signup request approved and subContractor created",
+        subContractor: subContractor,
       },
       { status: 201 }
     );

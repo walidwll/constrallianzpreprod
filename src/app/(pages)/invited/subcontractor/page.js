@@ -11,7 +11,7 @@ export default function Signup() {
 	const path= useSearchParams();
     const token = path.get('token');
     const dispatch = useDispatch();
-    const { loading } = useSelector((state) => state.contractor);
+    const { loading } = useSelector((state) => state.subContractor);
     const [error, setError] = useState("");
 	const [errors, setErrors] = useState({});
 	const passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*.])[a-zA-Z0-9!@#$%^&*.]{6,16}$/;
@@ -19,7 +19,6 @@ export default function Signup() {
     const InviteRequest= useSelector((state) => {
         return state.subContractor?.invite;
     });
-	const companyId = useSelector((state) => state?.auth?.user?.user?.companyId);
     const [formData, setFormData] = useState({
             first_name: '',
             last_name: '', 
@@ -30,6 +29,7 @@ export default function Signup() {
             confirmPassword:'',
             identity_number:'',
             identity_type:'DNI',
+			position:'',
             role:'',
             profile_addressligne1: '',
             profile_addressComplementaire: '',
@@ -37,15 +37,13 @@ export default function Signup() {
             profile_city: '',
             profile_country: '',
 			inviteId:'',
-			company_id: companyId ?? '',
+			companyId: '',
 			role: '',
     		isRP: false,
-    		addProject: false,
 			invitedBy: '',
         });
     const passwordMatch = formData.password === formData.confirmPassword;
     const inputClassName = "w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-base transition-all appearance-none";
-    let decoded=null;
     useEffect(() => {
         if (token) {
           dispatch(validateInviteToken(token));
@@ -56,15 +54,14 @@ export default function Signup() {
 		if (InviteRequest) {
 		  setFormData((prev) => ({
 			...prev,
-			company_id: companyId,
 			first_name: InviteRequest.first_name,
 			last_name: InviteRequest.last_name,
 			email: InviteRequest.email,
 			role: InviteRequest.role,
     		isRP: InviteRequest.isRP,
-    		addProject: InviteRequest.addProject,
 			inviteId:InviteRequest._id,
 			invitedBy: InviteRequest.invitedBy,
+			companyId: InviteRequest.companyId,
 		  }));
 		}
 	  }, [InviteRequest]);
@@ -105,7 +102,6 @@ export default function Signup() {
 			"confirmPassword",
 			"identity_number",
 			"identity_type",
-			"role",
 			"profile_addressligne1",
 			"profile_zipcode",
 			"profile_city",
@@ -339,16 +335,16 @@ export default function Signup() {
 
                           
                              <div>
-                               <h3 className="text-lg font-medium text-gray-900 mb-4">Company role</h3>
+                               <h3 className="text-lg font-medium text-gray-900 mb-4">Company position</h3>
                                <div className="flex gap-4">
                                  <div className="flex-1">
 								 <input
 									type="text"
-									name="role"
-									value={formData.role || ""}
+									name="position"
+									value={formData.position || ""}
 									onChange={handleChange}
-									placeholder="role *"
-									className={`${inputClassName}  ${errors["role"] ? "border-red-500" : formData.role  === "" ? "border-gray-300" : "border-green-500" }`}
+									placeholder="Position at company"
+									className={`${inputClassName}  ${errors["position"] ? "border-red-500" : formData.position  === "" ? "border-gray-300" : "border-green-500" }`}
 								/>
                                  </div>
                                </div>

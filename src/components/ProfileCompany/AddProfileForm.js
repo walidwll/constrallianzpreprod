@@ -15,7 +15,7 @@ const ROLE_PERMISSIONS = {
   'SubAdministrator':['SubManager', 'SubAdministrator']
 };
 
-const AddProfileForm = ({ currentRole, userId, isRP }) => {
+const AddProfileForm = ({ currentRole, userId,companyId, isRP }) => {
   const dispatch = useDispatch();
   const inputClassName ="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
   const [error, setError] = useState('');
@@ -27,6 +27,7 @@ const AddProfileForm = ({ currentRole, userId, isRP }) => {
     email: '',
     role: '',
     invitedBy:userId,
+    companyId:companyId,
     isRP: false, // For directors
     addProject: false, // For production managers
   });
@@ -66,6 +67,7 @@ const AddProfileForm = ({ currentRole, userId, isRP }) => {
                         email: '',
                         role: '',
                         invitedBy:userId,
+                        companyId:companyId,
                         isRP: false, // For directors
                         addProject: false,
                     });

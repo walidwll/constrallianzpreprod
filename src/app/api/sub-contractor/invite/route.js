@@ -9,8 +9,8 @@ export async function POST(request) {
     try {
         await connectDB(); 
         const formData = await request.json();
-        const {first_name,last_name,email,role,invitedBy,isRP,addProject} = formData;
-        if( !first_name || !last_name || !email || !role || !invitedBy ){
+        const {first_name,last_name,email,role,invitedBy,companyId,isRP} = formData;
+        if( !first_name || !last_name || !email || !role || !invitedBy ||!companyId ){
             return NextResponse.json( { message: "All required fields must be filled" }, { status: 400 } );
         }
         const newinviteRequest = await SubContractorRequest.create({
@@ -19,9 +19,10 @@ export async function POST(request) {
             email,
             role,
             invitedBy,
+            companyId,
             isRP,
-            addProject
           });
+          console.log("this is the invie request"+newinviteRequest);
 
         const inviteLink = await generateInviteLink(newinviteRequest, true);
 

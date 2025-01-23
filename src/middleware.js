@@ -77,8 +77,13 @@ export async function middleware(request) {
                         headers: { 'Content-Type': 'application/json' }
                     });
                 }
-            } else if (pathname.startsWith('/api/contractor/invite/validate')||pathname.startsWith('/api/sub-contractor/invite/validate')) {
-                const token = request.nextUrl.searchParams.get('token'); // Get token from query params
+            } else if (pathname.startsWith('/api/contractor/invite/')||pathname.startsWith('/api/sub-contractor/invite/')) {
+                let token = null; // Get token from query params
+                if(pathname.startsWith('/api/contractor/invite/complete')||pathname.startsWith('/api/sub-contractor/invite/complete')){
+                    token=request.cookies.get('invitetoken')?.value;
+                }else{
+                    token = request.nextUrl.searchParams.get('token');
+                }
                 if (!token) {
                     return new NextResponse(
                         JSON.stringify({ error: 'Token is required' }),
