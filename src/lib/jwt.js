@@ -1,7 +1,8 @@
 import { SignJWT, jwtVerify } from 'jose';
 
+const secret = new TextEncoder().encode(process.env.JWT_SECRET);
+
 export const signToken = async (payload) => {
-    const secret = new TextEncoder().encode(process.env.JWT_SECRET);
     return new SignJWT(payload)
         .setProtectedHeader({ alg: 'HS256' })
         .setExpirationTime('1d')
@@ -10,14 +11,7 @@ export const signToken = async (payload) => {
 
 export const verifyToken = async (token) => {
     try {
-        const secretKey = process.env.JWT_SECRET;
-
-        if (!secretKey || secretKey.trim() === '') {
-            console.error('JWT_SECRET is missing or empty.');
-            throw new Error('Server misconfiguration: Secret key is required.');
-        }
-        const secret = new TextEncoder().encode(secretKey);
-        const { payload } = await jwtVerify(token,secret);
+        const { payload } = await jwtVerify(token, secret);
         return payload;
     } catch (error) {
         console.error('Error verifing token :', error);
